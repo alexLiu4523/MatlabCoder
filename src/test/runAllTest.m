@@ -1,0 +1,6 @@
+baseFolder = 'Y:/ProjsMatlab/MatalbCoder/src';
+testBaseFolder = strcat(baseFolder, '/test');
+suiteFolder = testsuite(...
+    {strcat(testBaseFolder, '/index'),...
+     strcat(testBaseFolder, '/MatrixHandle')});
+result = run(suiteFolder);

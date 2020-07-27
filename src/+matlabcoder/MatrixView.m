@@ -97,9 +97,9 @@ classdef MatrixView < matlabcoder.ViewBase
     
     % this = other => this.assignImpl(other)
     function res = assignImpl(this, other)
-      if this.indexCount == 1
+      if this.indexCount() == 1
         viewIndexes = {this.indexes{1}.toMatlabIndex()};
-      elseif  this.indexCount == 2
+      elseif  this.indexCount() == 2
         viewIndexes = {this.indexes{1}.toMatlabIndex(), this.indexes{2}.toMatlabIndex()};
       end
       
@@ -109,7 +109,7 @@ classdef MatrixView < matlabcoder.ViewBase
             
           case matlabcoder.MatrixOpertationEnum.PlusMatrix
             this.dataHandle.data(viewIndexes{:}) = other.operandA + other.operandB;
-
+            
             
           otherwise
             matlabcoder.Util.throwException('MatrixView:assignImpl:IllegalArgument', 'Illegal argument.');
@@ -126,7 +126,7 @@ classdef MatrixView < matlabcoder.ViewBase
         matlabcoder.Util.throwException('MatrixView:assign:IllegalArgument', 'Illegal argument.');
       end
       
-                  res = this;
+      res = this;
       
     end
     
@@ -155,12 +155,12 @@ classdef MatrixView < matlabcoder.ViewBase
       coder.inline('never');
       if isscalar(B)
         %region ClassFuncImpl:MatrixView.plus.scalar(this,B,res)
-        res = matlabcoder.MatrixOperationValue(this, matlabcoder.MatrixOpertationEnum.PlusScalar, B);
+        res = matlabcoder.OperationValue(this, matlabcoder.MatrixOperationEnum.PlusScalar, B);
         % res = this.viewData() + B;
         %endregion ClassFuncImpl:MatrixView.plus.scalar
       elseif isa(B, 'matlabcoder.MatrixView')
         %region ClassFuncImpl:MatrixView.plus.matrix(this,B,res)
-        res = matlabcoder.MatrixOperationValue(this, matlabcoder.MatrixOpertationEnum.PlusMatrix, B);
+        res = matlabcoder.OperationValue(this, matlabcoder.MatrixOperationEnum.PlusMatrix, B);
         % res = this.viewData() + B.viewData();
         %endregion ClassFuncImpl:MatrixView.plus.matrix
       else

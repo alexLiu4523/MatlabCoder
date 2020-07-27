@@ -9,7 +9,7 @@ classdef MatrixView < matlabcoder.ViewBase
     
     function res = viewData(this)
       if numel(this.indexes) == 1 && matlabcoder.IndexBase.isLogicalIndex(this.indexes{1})
-        % generates a new matrix according to the function
+        % generate a new matrix according to the function
         res = this.indexes{1}.logicalFunc(this.dataHandle.data);
       else
         % Note: `cellfun` is not supported in MATLAB coder.
@@ -47,22 +47,21 @@ classdef MatrixView < matlabcoder.ViewBase
     end
     
     function res = subview(this, varargin)
-      % TODO
       if numel(this.indexes) == 1 && numel(varargin) == 1 ...
           && matlabcoder.IndexBase.isLogicalIndex(this.indexes{1}) && matlabcoder.IndexBase.isLogicalIndex(varargin{1})
         logicalIndex = this.indexes{1};
         otherLogicIndex = varargin{1};
-        % generates a new logical matrix
+        % generate a new logical matrix
         newLogicalIndex = matlabcoder.LogicalIndex(@(x) logicalIndex.logicalFunc(x) && otherLogicIndex.logicalFunc(x));
         res = matlabcoder.MatrixView(this.matrixHandle.data, newLogicalIndex);
         
       elseif numel(this.indexes) == 1 && numel(varargin) == 1
         xIndex = this.indexes{1};
         subXIndex = varargin{1};
-        if matlabcoder.IndexBase.isVectorableIndex(xIndex) && matlabcoder.IndexBase.isVectorableIndex(subXIndex)
+        if xIndex.isComposeable() && subXIndex.isComposeable()
           res = matlabcoder.MatrixView(this.matrixHandle, xIndex.compose(subXIndex));
         else
-          matlabcoder.Util.throwException('MatrixView:viewData:IllegalArgument', 'Illegal argument.');
+          matlabcoder.Util.throwException('MatrixView:subview:IllegalArgument', 'Illegal argument.');
         end
         
       elseif numel(this.indexes) == 2 && numel(varargin) == 2
@@ -70,8 +69,8 @@ classdef MatrixView < matlabcoder.ViewBase
         yIndex = this.indexes{2};
         subXIndex = varargin{1};
         subYIndex = varargin{2};
-        if matlabcoder.IndexBase.isVectorableIndex(xIndex) && matlabcoder.IndexBase.isVectorableIndex(yIndex) ...
-            && matlabcoder.IndexBase.isVectorableIndex(subXIndex) && matlabcoder.IndexBase.isVectorableIndex(subYIndex)
+        if xIndex.isComposeable() && subXIndex.isComposeable() ...
+            && subXIndex.isComposeable() && subYIndex.isComposeable()
           res = matlabcoder.MatrixView(this.dataHandle, xIndex.compose(subXIndex), yIndex.compose(subYIndex));
         else
           matlabcoder.Util.throwException('MatrixView:viewData:IllegalArgument', 'Illegal argument.');
@@ -98,15 +97,19 @@ classdef MatrixView < matlabcoder.ViewBase
     
     % this = other => this.assignImpl(other)
     function res = assignImpl(this, other)
+      if this.indexCount == 1
+        viewIndexes = {this.indexes{1}.toMatlabIndex()};
+      elseif  this.indexCount == 2
+        viewIndexes = {this.indexes{1}.toMatlabIndex(), this.indexes{2}.toMatlabIndex()};
+      end
+      
       if matlabcoder.OperationValue.isOperationValue(other)
         switch(other.opertation)
           case matlabcoder.MatrixOpertationEnum.PlusScalar
             
           case matlabcoder.MatrixOpertationEnum.PlusMatrix
-            xIndex = this.indexes{1};
-            yIndex = this.indexes{2};
-            this.dataHandle.data(xIndex.toMatlabIndex, yIndex.toMatlabIndex) = other.operandA + other.operandB;
-            res = this;
+            this.dataHandle.data(viewIndexes{:}) = other.operandA + other.operandB;
+
             
           otherwise
             matlabcoder.Util.throwException('MatrixView:assignImpl:IllegalArgument', 'Illegal argument.');
@@ -116,15 +119,14 @@ classdef MatrixView < matlabcoder.ViewBase
         
       elseif matlabcoder.MatrixHandle.isMartixHandle(other)
         
-      elseif numel(other) > 1
-        xIndex = this.indexes{1};
-        yIndex = this.indexes{2};
-        this.dataHandle.data(xIndex.toMatlabIndex, yIndex.toMatlabIndex) = other;
-        res = this;
+      elseif numel(other) > 1 % other is a builtin matrix
+        this.dataHandle.data(viewIndexes{:}) = other;
         
       else
         matlabcoder.Util.throwException('MatrixView:assign:IllegalArgument', 'Illegal argument.');
       end
+      
+                  res = this;
       
     end
     

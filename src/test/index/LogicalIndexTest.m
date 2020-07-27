@@ -1,4 +1,4 @@
-classdef LogicalIndexTest< matlab.unittest.TestCase
+classdef LogicalIndexTest < matlab.unittest.TestCase
   
   methods (Test)
     

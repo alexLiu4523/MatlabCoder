@@ -40,22 +40,46 @@ classdef RegularlySpacedIndex < matlabcoder.IndexBase
       if this.inc > 0
         res = ceil((this.endIndex - this.startIndex + 1) / this.inc);
       else
-         res = ceil((this.startIndex - this.endIndex + 1) / (-this.inc));
+        res = ceil((this.startIndex - this.endIndex + 1) / (-this.inc));
       end
     end
     
-    % TODO
-    function res = compose(otherIndex)
-      if isa(otherIndex, 'matlabcoder.AllIndex')
+    function res = compose(this, otherIndex)
+      if matlabcoder.IndexBase.isAllIndex(otherIndex)
         res = this;
-      elseif isa(otherIndex, 'matlabcoder.UnitSpacedIndex')
-        newStartIndex = this.startIndex + otherIndex.startIndex - 1;
-        newEndIndex = 1; % TODO
-        res = matlabcoder.UnitSpacedIndex(newStartIndex + newEndIndex);
-      elseif isa(otherIndex, 'matlabcoder.RegularlySpacedIndex')
-        throw(MException('RegularlySpacedIndex:compose:', '')); % TODO
+        
+      elseif matlabcoder.IndexBase.isEmptyIndex(otherIndex)
+        res = otherIndex;
+        
+      elseif matlabcoder.IndexBase.isUnitSpacedIndex(otherIndex)
+        [newStartIndex, newEndIndex] = ...
+          matlabcoder.IndexBase.composeIndexes(this.startIndex, this.endIndex, otherIndex.startIndex, otherIndex.endIndex);
+        if newStartIndex > 0
+          res = matlabcoder.RegularlySpacedIndex(newStartIndex, newEndIndex, this.inc);
+        else
+          res = matlabcoder.EmptyIndex.INSTANCE;
+        end
+        
+      elseif matlabcoder.IndexBase.isRegularlySpacedIndex(otherIndex)
+        [newStartIndex, newEndIndex] = ...
+          matlabcoder.IndexBase.composeIndexes(this.startIndex, this.endIndex, otherIndex.startIndex, otherIndex.endIndex);
+        if newStartIndex > 0
+          res = matlabcoder.RegularlySpacedIndex(newStartIndex, newEndIndex, this.inc * otherIndex.inc);
+        else
+          res = matlabcoder.EmptyIndex.INSTANCE;
+        end
+        
+        
+      elseif matlabcoder.IndexBase.isSinglePositionIndex(otherIndex)
+        newPosition = this.startIndex - 1 + otherIndex.getPosition();
+        if newPosition <= this.endIndex
+          res = matlabcoder.SinglePositionIndex(newPosition);
+        else
+          res = matlabcoder.EmptyIndex.INSTANCE;
+        end
+        
       else
-        throw(MException(''));
+        matlabcoder.Util.throwException('RegularlySpacedIndex:compose:IllegalArgument', '');
       end
     end
     

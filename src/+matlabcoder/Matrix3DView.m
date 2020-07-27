@@ -84,6 +84,8 @@ classdef Matrix3DView < matlabcoder.ViewBase
           res = this.dataHandle.eqImpl(other.dataHandle) && (this.indexes{1} == other.indexes{1});
         elseif this.indexCount == 2 && other.indexCount == 2
           res = this.dataHandle.eqImpl(other.dataHandle) && (this.indexes{1} == other.indexes{1}) && (this.indexes{2} == other.indexes{2});
+        elseif this.indexCount == 3 && other.indexCount == 3
+          res = this.dataHandle.eqImpl(other.dataHandle) && (this.indexes{1} == other.indexes{1}) && (this.indexes{2} == other.indexes{2}) && (this.indexes{3} == other.indexes{3});
         else
           res = false;
         end
@@ -94,14 +96,20 @@ classdef Matrix3DView < matlabcoder.ViewBase
     
     % this = other => this.assignImpl(other)
     function res = assignImpl(this, other)
+      if this.indexCount == 1
+        viewIndexes = {this.indexes{1}.toMatlabIndex()};
+      elseif this.indexCount == 2
+        viewIndexes = {this.indexes{1}.toMatlabIndex(), this.indexes{2}.toMatlabIndex()};
+      elseif this.indexCount == 3
+        viewIndexes = {this.indexes{1}.toMatlabIndex(), this.indexes{2}.toMatlabIndex(),  this.indexes{3}.toMatlabIndex()};
+      end
+      
       if matlabcoder.MatrixOperationValue.isMatrixOperationValue(other)
         switch(other.opertation)
           case matlabcoder.MatrixOpertationEnum.PlusScalar
             
           case matlabcoder.MatrixOpertationEnum.PlusMatrix
-            view = this.viewData();
-            view.assignImpl(other.operandA + other.operandB);
-            res = view;
+            this.dataHandle.data(viewIndexes{:}) = other.operandA + other.operandB;
             
           otherwise
             matlabcoder.Util.throwException('Matrix3DView:assignImpl:IllegalArgument', 'Illegal argument.');
@@ -112,13 +120,13 @@ classdef Matrix3DView < matlabcoder.ViewBase
       elseif matlabcoder.MatrixHandle.isMartixHandle(other)
         
       elseif numel(other) > 1
-        xIndex = this.indexes{1};
-        yIndex = this.indexes{2};
-        this.dataHandle.data(xIndex.toVector, yIndex.toVector) = other;
+        this.dataHandle.data(viewIndexes{:}) = other;
         
       else
         matlabcoder.Util.throwException('Matrix3DHandle:assign:IllegalArgument', 'Illegal argument.');
       end
+      
+      res = this;
       
     end
     

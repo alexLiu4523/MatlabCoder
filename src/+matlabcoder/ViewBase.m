@@ -76,7 +76,7 @@ classdef ViewBase
     % viewInstance(index1, index2, ...) => viewInstance.subview(index1, index2, ...)
     subview(this, varargin);
     
-    % this = other => this.assignImpl(other)
+    % this = other => this.assignImpl(other). Note: other will not be `this op B`
     assignImpl(this, other);
     
     % this = this op operand => this.operateSelfImpl(op, operand)

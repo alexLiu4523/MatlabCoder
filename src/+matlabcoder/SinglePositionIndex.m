@@ -8,6 +8,10 @@ classdef SinglePositionIndex < matlabcoder.IndexBase
       this = this@matlabcoder.IndexBase(pos, pos);
     end
     
+    function pos = getPosition(this)
+      pos = this.startIndex;
+    end
+    
     function res = toVector(this)
       res = this.startIndex : this.endIndex;
     end
@@ -22,22 +26,29 @@ classdef SinglePositionIndex < matlabcoder.IndexBase
     
     % TODO
     function res = compose(otherIndex)
-      if isa(otherIndex, 'matlabcoder.AllIndex')
+      if matlabcoder.IndexBase.isAllIndex(otherIndex)
         res = this;
-      elseif isa(otherIndex, 'matlabcoder.UnitSpacedIndex')
-        if otherIndex.startIndex == 1 % && otherIndex.endIndex >= 1
+        
+      elseif matlabcoder.IndexBase.isEmptyIndex(otherIndex)
+        res = otherIndex;
+        
+      elseif matlabcoder.IndexBase.isUnitSpacedIndex(otherIndex) ||  matlabcoder.IndexBase.isRegularlySpacedIndex(otherIndex)
+        % A(x)(a:b) || A(x)(a:2:b), where (a:b) and (a:2:b) is not empty
+        if otherIndex.startIndex == 1
           res = this;
         else
           res = matlabcoder.EmptyIndex.INSTANCE;
         end
-      elseif isa(otherIndex, 'matlabcoder.RegularlySpacedIndex')
-         if otherIndex.startIndex == 1 % && otherIndex.endIndex >= 1
+
+      elseif matlabcoder.IndexBase.isSinglePositionIndex(otherIndex)
+        if otherIndex.getPosition == 1
           res = this;
         else
           res = matlabcoder.EmptyIndex.INSTANCE;
         end
+        
       else
-        throw(MException('SinglePositionIndex:compose:IllegalArgument', ''));
+        matlabcoder.Util.throwException('SinglePositionIndex:compose:IllegalArgument', '');
       end
     end
     

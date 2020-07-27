@@ -8,6 +8,8 @@ classdef MatrixHandle < matlabcoder.HandleBase
         throw(MException('MatrixHandle:Constructor:IllegalArgument', 'Can not create a MatrixHandle with data type %s', class(arg)));
       end
     end
+    
+    % Note: ismatrix([1 2]) and ismatrix([1; 2]) both return true
 
     function res = subview(this, varargin)
       % allow 1 or 2 indexes

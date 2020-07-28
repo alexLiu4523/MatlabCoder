@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.coder" plugin-version="R2018b">
-  <configuration build-checksum="3363013198" file="Y:\ProjsMatlab\MatalbCoder\src\sample\matrixHandleTest\MatrixHandleTest.prj" location="Y:\ProjsMatlab\MatalbCoder\src\sample\matrixHandleTest" name="MatrixHandleTest" target="target.unifiedcoder" target-name="MATLAB Coder">
+  <configuration build-checksum="1964655416" file="Y:\ProjsMatlab\MatalbCoder\src\sample\matrixHandleTest\MatrixHandleTest.prj" location="Y:\ProjsMatlab\MatalbCoder\src\sample\matrixHandleTest" name="MatrixHandleTest" target="target.unifiedcoder" target-name="MATLAB Coder">
     <profile key="profile.mex">
       <param.BuiltInstrumentedMex />
       <param.RanInstrumentedMex>false</param.RanInstrumentedMex>
@@ -62,7 +62,7 @@
       <param.EnableOpenMP>true</param.EnableOpenMP>
       <param.InitFltsAndDblsToZero>true</param.InitFltsAndDblsToZero>
       <param.ConstantInputs />
-      <param.EnableCRICodeCoverage>true</param.EnableCRICodeCoverage>
+      <param.EnableCRICodeCoverage>false</param.EnableCRICodeCoverage>
       <param.EnableJIT>false</param.EnableJIT>
       <param.EnableJITSilentBailOut />
       <param.CheckForIssuesJIT />
@@ -128,7 +128,6 @@
         <param.EnableOpenMP />
         <param.InitFltsAndDblsToZero />
         <param.ConstantInputs />
-        <param.EnableCRICodeCoverage />
         <param.EnableJIT />
         <param.EnableJITSilentBailOut />
         <param.CheckForIssuesJIT />
@@ -207,7 +206,7 @@
       <param.ReportInfoVarName />
       <param.SILDebugging>false</param.SILDebugging>
       <param.SILPILCheckConstantInputs>false</param.SILPILCheckConstantInputs>
-      <param.SILPILSyncGlobalData>true</param.SILPILSyncGlobalData>
+      <param.SILPILSyncGlobalData>false</param.SILPILSyncGlobalData>
       <param.CodeExecutionProfiling>false</param.CodeExecutionProfiling>
       <param.CodeProfilingInstrumentation>false</param.CodeProfilingInstrumentation>
       <param.DefaultTestFile />
@@ -227,7 +226,7 @@
       <param.CodeReplacementLibrary>None</param.CodeReplacementLibrary>
       <param.DeprecatedCRLFlag>false</param.DeprecatedCRLFlag>
       <param.SameHardware>true</param.SameHardware>
-      <param.Toolchain>Microsoft Visual C++ 2019 v16.0 | nmake (64-bit Windows)</param.Toolchain>
+      <param.Toolchain>Automatically locate an installed toolchain</param.Toolchain>
       <param.BuildConfiguration>Faster Runs</param.BuildConfiguration>
       <param.CustomToolchainOptions />
       <var.ToolchainSettingsVisible>true</var.ToolchainSettingsVisible>
@@ -385,7 +384,6 @@
         <param.LaunchReport />
         <param.ReportInfoVarName />
         <param.SILDebugging />
-        <param.SILPILSyncGlobalData />
         <param.CodeExecutionProfiling />
         <param.CodeProfilingInstrumentation />
         <param.DefaultTestFile />
@@ -404,6 +402,7 @@
         <param.CodeReplacementLibrary />
         <param.DeprecatedCRLFlag />
         <param.SameHardware />
+        <param.Toolchain />
         <param.BuildConfiguration />
         <param.CustomToolchainOptions />
         <var.ToolchainSettingsVisible />
@@ -835,6 +834,11 @@
     <param.HasECoderFeatures>true</param.HasECoderFeatures>
     <param.HasGpuCoder>true</param.HasGpuCoder>
     <var.HasNeuralNetworkToolbox>true</var.HasNeuralNetworkToolbox>
+    <param.newGlobals>
+      <Globals>
+        <idpTable />
+      </Globals>
+    </param.newGlobals>
     <param.mex.mainhtml />
     <param.grt.mainhtml />
     <param.CallGeneratedCodeFromTest>true</param.CallGeneratedCodeFromTest>
@@ -845,7 +849,7 @@
     <param.AutoInferUnboundedSizeThreshold>2048</param.AutoInferUnboundedSizeThreshold>
     <param.EnableFixedPointStep>false</param.EnableFixedPointStep>
     <param.EnableScreener>false</param.EnableScreener>
-    <param.AnnotationChecksum>0</param.AnnotationChecksum>
+    <param.AnnotationChecksum>586866228</param.AnnotationChecksum>
     <var.LegacyTarget />
     <var.MirrorOnOpen>false</var.MirrorOnOpen>
     <param.FixedPointEnabled>false</param.FixedPointEnabled>
@@ -854,12 +858,12 @@
     <param.unifiedParamStorage />
     <var.gc.lastOutputRoot>codegen\lib\MatrixHandleTest</var.gc.lastOutputRoot>
     <var.gc.lastOutputType>C_CODE</var.gc.lastOutputType>
-    <var.gc.preBuildChecksum>4095920333</var.gc.preBuildChecksum>
+    <var.gc.preBuildChecksum>1162995427</var.gc.preBuildChecksum>
     <var.cfi.lastOutputRoot />
     <var.cfi.preBuildChecksum />
     <var.outdatedOnRestore>false</var.outdatedOnRestore>
-    <var.lastUserSourceChecksum>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;checksum&gt;&lt;includedFiles&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\AllIndex.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\HandleBase.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\IndexBase.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\MatrixHandle.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\MatrixView.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\OperationValue.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\SinglePositionIndex.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\UnitSpacedIndex.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\ViewBase.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\sample\matrixHandleTest\MatrixHandleTest.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\sample\matrixHandleTest\processPart.m&lt;/file&gt;&lt;/includedFiles&gt;&lt;value&gt;3874777895&lt;/value&gt;&lt;/checksum&gt;</var.lastUserSourceChecksum>
-    <var.sourceSetState>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;sourceModel&gt;&lt;primarySourceFiles&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\AllIndex.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\HandleBase.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\IndexBase.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\MatrixHandle.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\MatrixView.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\OperationValue.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\SinglePositionIndex.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\UnitSpacedIndex.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\ViewBase.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\sample\matrixHandleTest\MatrixHandleTest.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\sample\matrixHandleTest\processPart.m&lt;/file&gt;&lt;/primarySourceFiles&gt;&lt;fixedPointSourceFiles/&gt;&lt;fixedPointSourceRegistered&gt;false&lt;/fixedPointSourceRegistered&gt;&lt;fixedPointSourceSelected&gt;false&lt;/fixedPointSourceSelected&gt;&lt;/sourceModel&gt;</var.sourceSetState>
+    <var.lastUserSourceChecksum>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;checksum&gt;&lt;includedFiles&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\AllIndex.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\HandleBase.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\IndexBase.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\MatrixHandle.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\MatrixView.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\OperationValue.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\OperationValueForMatrixMatrix.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\OperationValueForMatrixScalar.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\SinglePositionIndex.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\UnitSpacedIndex.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\ViewBase.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\sample\matrixHandleTest\MatrixHandleTest.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\sample\matrixHandleTest\OperationValueTest.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\sample\matrixHandleTest\processPart.m&lt;/file&gt;&lt;/includedFiles&gt;&lt;value&gt;404665629&lt;/value&gt;&lt;/checksum&gt;</var.lastUserSourceChecksum>
+    <var.sourceSetState>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;sourceModel&gt;&lt;primarySourceFiles&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\AllIndex.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\HandleBase.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\IndexBase.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\MatrixHandle.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\MatrixView.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\OperationValue.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\OperationValueForMatrixMatrix.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\OperationValueForMatrixScalar.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\SinglePositionIndex.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\UnitSpacedIndex.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\ViewBase.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\sample\matrixHandleTest\MatrixHandleTest.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\sample\matrixHandleTest\OperationValueTest.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\sample\matrixHandleTest\processPart.m&lt;/file&gt;&lt;/primarySourceFiles&gt;&lt;fixedPointSourceFiles/&gt;&lt;fixedPointSourceRegistered&gt;false&lt;/fixedPointSourceRegistered&gt;&lt;fixedPointSourceSelected&gt;false&lt;/fixedPointSourceSelected&gt;&lt;/sourceModel&gt;</var.sourceSetState>
     <param.forceMexBuild>false</param.forceMexBuild>
     <param.NoDefaultJIT>false</param.NoDefaultJIT>
     <param.configImportActive>false</param.configImportActive>
@@ -872,7 +876,7 @@
     <param.grt.outputfile>MatrixHandleTest</param.grt.outputfile>
     <param.artifact>option.target.artifact.lib</param.artifact>
     <param.outputfile>${PROJECT_ROOT}\codegen\lib\MatrixHandleTest\MatrixHandleTest.lib</param.outputfile>
-    <param.CppNamespace>njusegmatlabcoder</param.CppNamespace>
+    <param.CppNamespace />
     <param.gpu.Enabled>false</param.gpu.Enabled>
     <param.gpu.KernelNamePrefix />
     <param.gpu.SelectCudaDevice>-1</param.gpu.SelectCudaDevice>
@@ -987,6 +991,7 @@
       <var.ecoderEnabled />
       <param.mex.outputfile />
       <param.grt.outputfile />
+      <param.CppNamespace />
       <param.gpu.Enabled />
       <param.gpu.KernelNamePrefix />
       <param.gpu.SelectCudaDevice />
@@ -1065,10 +1070,12 @@
     </unset>
     <fileset.entrypoints>
       <file custom-data-expanded="false" value="${PROJECT_ROOT}\MatrixHandleTest.m" />
+      <file custom-data-expanded="false" value="${PROJECT_ROOT}\OperationValueTest.m" />
     </fileset.entrypoints>
     <fileset.testbench />
     <fileset.inputtypes>
       <file>${PROJECT_ROOT}\MatrixHandleTest.m</file>
+      <file>${PROJECT_ROOT}\OperationValueTest.m</file>
     </fileset.inputtypes>
     <build-deliverables>
       <file location="${PROJECT_ROOT}\codegen\lib\MatrixHandleTest" name="MatrixHandleTest.lib" optional="false">Y:\ProjsMatlab\MatalbCoder\src\sample\matrixHandleTest\codegen\lib\MatrixHandleTest\MatrixHandleTest.lib</file>

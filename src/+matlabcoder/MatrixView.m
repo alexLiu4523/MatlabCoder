@@ -104,12 +104,16 @@ classdef MatrixView < matlabcoder.ViewBase
       end
       
       if matlabcoder.OperationValue.isOperationValue(other)
-        switch(other.opertation)
-          case matlabcoder.MatrixOpertationEnum.PlusScalar
+        switch(other.operation)
+          case matlabcoder.MatrixOperationEnum.PlusScalar
             
-          case matlabcoder.MatrixOpertationEnum.PlusMatrix
-            this.dataHandle.data(viewIndexes{:}) = other.operandA + other.operandB;
-            
+          case matlabcoder.MatrixOperationEnum.PlusMatrix
+            if matlabcoder.MatrixView.isMatrixView(other.operandA) && matlabcoder.MatrixView.isMatrixView(other.operandB)
+              % res(view) = other.operandA(view) + other.operandB(view)
+              visplstub.Stub_Vsip_MAdd_Double(other.operandA, other.operandB, this);
+            else
+              matlabcoder.Util.throwException('MatrixView:assignImpl:IllegalArgument', 'Illegal argument.');
+            end
             
           otherwise
             matlabcoder.Util.throwException('MatrixView:assignImpl:IllegalArgument', 'Illegal argument.');
@@ -133,16 +137,26 @@ classdef MatrixView < matlabcoder.ViewBase
     % this = this op operand => this.operateSelfImpl(op, operand)
     function res = operateSelfImpl(this, operation, operand)
       switch(operation)
-        case matlabcoder.MatrixOpertationEnum.PlusScalar
+        case matlabcoder.MatrixOperationEnum.PlusScalar
           
-        case matlabcoder.MatrixOpertationEnum.PlusMatrix
-          view = this.viewData();
-          view.assignImpl(view + operand);
-          res = view;
+        case matlabcoder.MatrixOperationEnum.PlusMatrix
+          if matlabcoder.MatrixView.isMatrixView(operand) && matlabcoder.MatrixView.isMatrixView(other.operandB)
+            % this(view) = this(view) + operand(view)
+            visplstub.Stub_Vsip_MAdd_Double(this, operand, this);
+          else
+            matlabcoder.Util.throwException('MatrixView:assignImpl:IllegalArgument', 'Illegal argument.');
+          end
+          
+        case matlabcoder.MatrixOperationEnum.Times
+          % this(view) = other.operandA(view) .* other.operandB(scalar)
+          % TODO
+          visplstub.Stub_Vsip_SMMul_Double(operand, this, this);
           
         otherwise
           matlabcoder.Util.throwException('MatrixView:assignImpl:IllegalArgument', 'Illegal argument.');
       end
+      
+      res = this;
     end
     
     %     function res = plusMatrixAssignSelf(this, operand)
@@ -166,6 +180,22 @@ classdef MatrixView < matlabcoder.ViewBase
       else
         matlabcoder.Util.throwException('MatrixView:plus:IllegalArgument', 'Illegal argument.');
       end
+    end
+    
+    % Element-wise multiplication, A .* b
+    function res = times(this, b)
+      coder.inline('never');
+      if ~isscalar(b)
+        matlabcoder.Util.throwException('MatrixView:times:IllegalArgument', 'b should be scalar.');
+      end
+      
+      if isfloat(b)
+        res = matlabcoder.OperationValue(this, matlabcoder.MatrixOperationEnum.Times, b);
+        
+      else
+        res = matlabcoder.ViewBase.throwForUnsupportOperation();
+      end
+      
     end
     
     function res = min(this)

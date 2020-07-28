@@ -9,7 +9,7 @@ coder.inline('never');
 matrixView = matrixHandle.subview(matlabcoder.UnitSpacedIndex(startIndex, endIndex), matlabcoder.UnitSpacedIndex(startIndex, endIndex)); % MatrixHandle's subsref returns a MatrixView
 
 % Note: `matrixView + inc` works in MATLAB (operation is 'PlusScalar') but not in coder (operation is 'PlusMatrix')
-opValue = matlabcoder.OperationValue(matrixView, matlabcoder.MatrixOperationEnum.PlusScalar, inc);
+opValue = matlabcoder.OperationValueForMatrixScalar(matrixView, matlabcoder.MatrixOperationEnum.PlusScalar, inc);
 % matrixView + inc; % matrixView = Stub_MatrixSclarAdd(matrixView, inc);
 
 opValueRes = opValue.compute();

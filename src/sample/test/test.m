@@ -1,14 +1,14 @@
 function [pfDstData]= test(pfSrcData, pfPhaseRandom, ...
   pfBackAmp, pfBuf, pst_testPara)
-%ÊäÈëÊı¾İÎ¬¶ÈÊÇM*N*Q
-%Í¨ÓÃÏî£ºpst_testParaÊı¾İÀàĞÍÎª xxx_test_PARA*£¨ pst_testParaÄÚÖ¸ÕëÏîÓ¦¸ÃÒÑÖª£©£¬
-% pst_CorePara½á¹¹ÌåÖ¸ÕëÎª¶àºË´¦Àí±ØĞëÏî£¬ÓÉÍâ²¿´«Èë
-%Èë¿Úº¯ÊıÀàĞÍÎªint£¬ÄÚ²¿×Óº¯ÊıÀàĞÍÎª static int
+%è¾“å…¥æ•°æ®ç»´åº¦æ˜¯M*N*Q
+%é€šç”¨é¡¹ï¼špst_testParaæ•°æ®ç±»å‹ä¸º xxx_test_PARA*ï¼ˆ pst_testParaå†…æŒ‡é’ˆé¡¹åº”è¯¥å·²çŸ¥ï¼‰ï¼Œ
+% pst_CoreParaç»“æ„ä½“æŒ‡é’ˆä¸ºå¤šæ ¸å¤„ç†å¿…é¡»é¡¹ï¼Œç”±å¤–éƒ¨ä¼ å…¥
+%å…¥å£å‡½æ•°ç±»å‹ä¸ºintï¼Œå†…éƒ¨å­å‡½æ•°ç±»å‹ä¸º static int
 %
-%Í·ÎÄ¼ş
-%Í·ÎÄ¼ş£º¹¦ÄÜËã·¨Ãûh+Ä¬ÈÏ xxXBlockViewh£¨block°ó¶¨·â×°º¯Êı£©
+%å¤´æ–‡ä»¶
+%å¤´æ–‡ä»¶ï¼šåŠŸèƒ½ç®—æ³•åh+é»˜è®¤ xxXBlockViewhï¼ˆblockç»‘å®šå°è£…å‡½æ•°ï¼‰
 
-% ¶ÏÑÔ pfSrcData ÎªÊıÖµÀàĞÍ¾ØÕó
+% æ–­è¨€ pfSrcData ä¸ºæ•°å€¼ç±»å‹çŸ©é˜µ
 assert(~isscalar(pfSrcData) && isnumeric(pfSrcData))
 
 uiMNum = pst_testPara.uiMNum;

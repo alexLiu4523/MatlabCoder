@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.coder" plugin-version="R2018b">
-  <configuration build-checksum="857937870" file="Y:\ProjsMatlab\MatlabToC-Proj\src\dpcCodeGen\dpc.prj" location="Y:\ProjsMatlab\MatlabToC-Proj\src\dpcCodeGen" name="dpc" target="target.unifiedcoder" target-name="MATLAB Coder">
+  <configuration build-checksum="3680648587" file="Y:\ProjsMatlab\MatalbCoder\src\sample\dpcCodeGen\dpc.prj" location="Y:\ProjsMatlab\MatalbCoder\src\sample\dpcCodeGen" name="dpc" target="target.unifiedcoder" target-name="MATLAB Coder">
     <profile key="profile.mex">
       <param.BuiltInstrumentedMex />
       <param.RanInstrumentedMex>false</param.RanInstrumentedMex>
@@ -9,10 +9,10 @@
       <param.SpecifiedBuildFolder />
       <param.SearchPaths />
       <param.ResponsivenessChecks>false</param.ResponsivenessChecks>
-      <param.ExtrinsicCalls />
-      <param.IntegrityChecks />
+      <param.ExtrinsicCalls>true</param.ExtrinsicCalls>
+      <param.IntegrityChecks>true</param.IntegrityChecks>
       <param.SaturateOnIntegerOverflow>true</param.SaturateOnIntegerOverflow>
-      <param.GlobalDataSyncMethod />
+      <param.GlobalDataSyncMethod>option.GlobalDataSyncMethod.SyncAlways</param.GlobalDataSyncMethod>
       <param.EnableVariableSizing>true</param.EnableVariableSizing>
       <param.DynamicMemoryAllocation>option.DynamicMemoryAllocation.Threshold</param.DynamicMemoryAllocation>
       <param.DynamicMemoryAllocationThreshold>65536</param.DynamicMemoryAllocationThreshold>
@@ -20,13 +20,13 @@
       <param.RowMajor>option.RowMajor.ColumnMajor</param.RowMajor>
       <param.HighlightPotentialRowMajorIssues>true</param.HighlightPotentialRowMajorIssues>
       <param.PreserveArrayDimensions>false</param.PreserveArrayDimensions>
-      <param.EliminateSingleDimensions />
+      <param.EliminateSingleDimensions>false</param.EliminateSingleDimensions>
       <param.StackUsageMax>200000</param.StackUsageMax>
       <param.FilePartitionMethod>option.FilePartitionMethod.MapMFileToCFile</param.FilePartitionMethod>
       <param.GenerateComments>true</param.GenerateComments>
       <param.MATLABSourceComments>true</param.MATLABSourceComments>
       <param.ReservedNameArray />
-      <param.EnableDebugging />
+      <param.EnableDebugging>false</param.EnableDebugging>
       <param.ReportPotentialDifferences>false</param.ReportPotentialDifferences>
       <param.GenerateReport>false</param.GenerateReport>
       <param.LaunchReport>false</param.LaunchReport>
@@ -34,9 +34,9 @@
       <param.DefaultTestFile />
       <param.MergeInstrumentationResults>false</param.MergeInstrumentationResults>
       <param.VerificationMode>option.VerificationMode.None</param.VerificationMode>
-      <param.VerificationStatus>option.VerificationStatus.Passed</param.VerificationStatus>
+      <param.VerificationStatus>option.VerificationStatus.FailedTest</param.VerificationStatus>
       <param.EnableMexProfiling>false</param.EnableMexProfiling>
-      <var.BuiltWithMexProfiling />
+      <var.BuiltWithMexProfiling>false</var.BuiltWithMexProfiling>
       <param.CustomSourceCode />
       <param.CustomHeaderCode />
       <param.CustomInitializer />
@@ -45,15 +45,15 @@
       <param.CustomSource />
       <param.CustomLibrary />
       <param.PostCodeGenCommand />
-      <param.mex.GenCodeOnly />
+      <param.mex.GenCodeOnly>false</param.mex.GenCodeOnly>
       <param.ConstantFoldingTimeout>40000</param.ConstantFoldingTimeout>
       <param.CompileTimeRecursionLimit>50</param.CompileTimeRecursionLimit>
       <param.EnableRuntimeRecursion>true</param.EnableRuntimeRecursion>
       <param.PreserveVariableNames>option.PreserveVariableNames.UserNames</param.PreserveVariableNames>
-      <param.InlineUserFunctions />
-      <param.InlineMWFunctions />
-      <param.InlineMWFunctionsInUserFunctions />
-      <param.EchoExpressions />
+      <param.InlineUserFunctions>option.InlineUserFunctions.Speed</param.InlineUserFunctions>
+      <param.InlineMWFunctions>option.InlineMWFunctions.Speed</param.InlineMWFunctions>
+      <param.InlineMWFunctionsInUserFunctions>option.InlineMWFunctionsInUserFunctions.Speed</param.InlineMWFunctionsInUserFunctions>
+      <param.EchoExpressions>true</param.EchoExpressions>
       <param.InlineThreshold>10</param.InlineThreshold>
       <param.InlineThresholdMax>200</param.InlineThresholdMax>
       <param.InlineStackLimit>4000</param.InlineStackLimit>
@@ -61,11 +61,11 @@
       <param.MemcpyThreshold>64</param.MemcpyThreshold>
       <param.EnableOpenMP>true</param.EnableOpenMP>
       <param.InitFltsAndDblsToZero>true</param.InitFltsAndDblsToZero>
-      <param.ConstantInputs />
+      <param.ConstantInputs>option.ConstantInputs.CheckValues</param.ConstantInputs>
       <param.EnableCRICodeCoverage>true</param.EnableCRICodeCoverage>
       <param.EnableJIT>false</param.EnableJIT>
       <param.EnableJITSilentBailOut />
-      <param.CheckForIssuesJIT />
+      <param.CheckForIssuesJIT>true</param.CheckForIssuesJIT>
       <unset>
         <param.BuiltInstrumentedMex />
         <param.RanInstrumentedMex />
@@ -147,7 +147,7 @@
       <param.RowMajor>option.RowMajor.ColumnMajor</param.RowMajor>
       <param.HighlightPotentialRowMajorIssues>true</param.HighlightPotentialRowMajorIssues>
       <param.PreserveArrayDimensions>false</param.PreserveArrayDimensions>
-      <param.EliminateSingleDimensions />
+      <param.EliminateSingleDimensions>false</param.EliminateSingleDimensions>
       <param.StackUsageMax>200000</param.StackUsageMax>
       <param.MultiInstanceCode>true</param.MultiInstanceCode>
       <param.FilePartitionMethod>option.FilePartitionMethod.MapMFileToCFile</param.FilePartitionMethod>
@@ -193,16 +193,16 @@
       <param.ReservedNameArray />
       <param.RuntimeChecks>false</param.RuntimeChecks>
       <param.Verbose>false</param.Verbose>
-      <param.ReportPotentialDifferences>false</param.ReportPotentialDifferences>
-      <param.GenerateReport>true</param.GenerateReport>
+      <param.ReportPotentialDifferences>true</param.ReportPotentialDifferences>
+      <param.GenerateReport>false</param.GenerateReport>
       <param.GenerateCodeMetricsReport>false</param.GenerateCodeMetricsReport>
       <param.GenerateCodeReplacementReport>false</param.GenerateCodeReplacementReport>
       <param.HighlightPotentialDataTypeIssues>false</param.HighlightPotentialDataTypeIssues>
       <param.LaunchReport>false</param.LaunchReport>
       <param.ReportInfoVarName />
       <param.SILDebugging>false</param.SILDebugging>
-      <param.SILPILCheckConstantInputs>true</param.SILPILCheckConstantInputs>
-      <param.SILPILSyncGlobalData>true</param.SILPILSyncGlobalData>
+      <param.SILPILCheckConstantInputs>false</param.SILPILCheckConstantInputs>
+      <param.SILPILSyncGlobalData>false</param.SILPILSyncGlobalData>
       <param.CodeExecutionProfiling>false</param.CodeExecutionProfiling>
       <param.CodeProfilingInstrumentation>false</param.CodeProfilingInstrumentation>
       <param.DefaultTestFile />
@@ -218,21 +218,34 @@
       <param.CustomSource />
       <param.CustomLibrary />
       <param.PostCodeGenCommand />
-      <param.TargetLangStandard>C89/C90 (ANSI)</param.TargetLangStandard>
+      <param.TargetLangStandard>C++11 (ISO)</param.TargetLangStandard>
       <param.CodeReplacementLibrary>None</param.CodeReplacementLibrary>
-      <param.DeprecatedCRLFlag />
+      <param.DeprecatedCRLFlag>false</param.DeprecatedCRLFlag>
       <param.SameHardware>true</param.SameHardware>
       <param.Toolchain>Microsoft Visual C++ 2019 v16.0 | nmake (64-bit Windows)</param.Toolchain>
       <param.BuildConfiguration>Faster Runs</param.BuildConfiguration>
-      <param.CustomToolchainOptions />
+      <param.CustomToolchainOptions>
+        <options>
+          <option key="C Compiler" modified="false" value="$(cflags) $(CVARSFLAG) $(CFLAGS_ADDITIONAL) /Od /Oy-" />
+          <option key="Linker" modified="false" value="$(ldebug) $(conflags) $(LIBS_TOOLCHAIN)" />
+          <option key="Shared Library Linker" modified="false" value="$(ldebug) $(conflags) $(LIBS_TOOLCHAIN) -dll -def:$(DEF_FILE)" />
+          <option key="C++ Compiler" modified="false" value="/TP $(cflags) $(CVARSFLAG) $(CPPFLAGS_ADDITIONAL) /Od /Oy-" />
+          <option key="C++ Linker" modified="false" value="$(ldebug) $(conflags) $(LIBS_TOOLCHAIN)" />
+          <option key="C++ Shared Library Linker" modified="false" value="$(ldebug) $(conflags) $(LIBS_TOOLCHAIN) -dll -def:$(DEF_FILE)" />
+          <option key="Archiver" modified="false" value="/nologo" />
+          <option key="Download" modified="false" value="" />
+          <option key="Execute" modified="false" value="" />
+          <option key="Make Tool" modified="false" value="-f $(MAKEFILE)" />
+        </options>
+      </param.CustomToolchainOptions>
       <var.ToolchainSettingsVisible>true</var.ToolchainSettingsVisible>
       <param.target.Data>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;ctdata&gt;&lt;configuredHardware/&gt;&lt;/ctdata&gt;</param.target.Data>
       <param.target.ActiveType>option.target.TargetType.MatlabHost</param.target.ActiveType>
       <param.target.ActiveTarget />
       <param.HardwareVendor.Production>Generic</param.HardwareVendor.Production>
       <param.HardwareType.Production>MATLAB Host Computer</param.HardwareType.Production>
-      <param.HWDeviceType.Production />
-      <var.instance.enabled.Production />
+      <param.HWDeviceType.Production>Generic-&gt;MATLAB Host Computer</param.HWDeviceType.Production>
+      <var.instance.enabled.Production>true</var.instance.enabled.Production>
       <param.HardwareSizeChar.Production>8</param.HardwareSizeChar.Production>
       <param.HardwareSizeShort.Production>16</param.HardwareSizeShort.Production>
       <param.HardwareSizeInt.Production>32</param.HardwareSizeInt.Production>
@@ -252,8 +265,8 @@
       <param.HardwareDivisionRounding.Production>option.HardwareDivisionRounding.Zero</param.HardwareDivisionRounding.Production>
       <param.HardwareVendor.Target>Generic</param.HardwareVendor.Target>
       <param.HardwareType.Target>MATLAB Host Computer</param.HardwareType.Target>
-      <param.HWDeviceType.Target />
-      <var.instance.enabled.Target />
+      <param.HWDeviceType.Target>Generic-&gt;MATLAB Host Computer</param.HWDeviceType.Target>
+      <var.instance.enabled.Target>false</var.instance.enabled.Target>
       <param.HardwareSizeChar.Target>8</param.HardwareSizeChar.Target>
       <param.HardwareSizeShort.Target>16</param.HardwareSizeShort.Target>
       <param.HardwareSizeInt.Target>32</param.HardwareSizeInt.Target>
@@ -284,9 +297,9 @@
       <param.IncludeTerminateFcn>true</param.IncludeTerminateFcn>
       <param.GenerateExampleMain>option.GenerateExampleMain.GenerateCodeOnly</param.GenerateExampleMain>
       <param.PreserveVariableNames>option.PreserveVariableNames.None</param.PreserveVariableNames>
-      <param.InlineUserFunctions />
-      <param.InlineMWFunctions />
-      <param.InlineMWFunctionsInUserFunctions />
+      <param.InlineUserFunctions>option.InlineUserFunctions.Speed</param.InlineUserFunctions>
+      <param.InlineMWFunctions>option.InlineMWFunctions.Speed</param.InlineMWFunctions>
+      <param.InlineMWFunctionsInUserFunctions>option.InlineMWFunctionsInUserFunctions.Speed</param.InlineMWFunctionsInUserFunctions>
       <param.GenerateMakefile>true</param.GenerateMakefile>
       <param.BuildToolEnable>false</param.BuildToolEnable>
       <param.BuildToolConfiguration />
@@ -375,16 +388,12 @@
         <param.ReservedNameArray />
         <param.RuntimeChecks />
         <param.Verbose />
-        <param.ReportPotentialDifferences />
-        <param.GenerateReport />
         <param.GenerateCodeMetricsReport />
         <param.GenerateCodeReplacementReport />
         <param.HighlightPotentialDataTypeIssues />
         <param.LaunchReport />
         <param.ReportInfoVarName />
         <param.SILDebugging />
-        <param.SILPILCheckConstantInputs />
-        <param.SILPILSyncGlobalData />
         <param.CodeExecutionProfiling />
         <param.CodeProfilingInstrumentation />
         <param.DefaultTestFile />
@@ -404,7 +413,6 @@
         <param.DeprecatedCRLFlag />
         <param.SameHardware />
         <param.BuildConfiguration />
-        <param.CustomToolchainOptions />
         <var.ToolchainSettingsVisible />
         <param.target.ActiveType />
         <param.target.ActiveTarget />
@@ -832,10 +840,10 @@
     <param.TestSnippets>
       <item>dpcCaller</item>
     </param.TestSnippets>
-    <param.ExternalFcnMajority />
+    <param.ExternalFcnMajority>column</param.ExternalFcnMajority>
     <param.UseGlobals>option.UseGlobals.No</param.UseGlobals>
     <param.outputfile>${PROJECT_ROOT}\codegen\lib\dpc\dpc.lib</param.outputfile>
-    <param.version />
+    <param.version>R2012a</param.version>
     <param.HasECoderFeatures>true</param.HasECoderFeatures>
     <param.HasGpuCoder>true</param.HasGpuCoder>
     <var.HasNeuralNetworkToolbox>true</var.HasNeuralNetworkToolbox>
@@ -843,11 +851,11 @@
     <param.grt.mainhtml />
     <param.CallGeneratedCodeFromTest>true</param.CallGeneratedCodeFromTest>
     <param.AutoInferDefaultFile />
-    <param.AutoInferUseVariableSize />
-    <param.AutoInferUseUnboundedSize />
-    <param.AutoInferVariableSizeThreshold />
-    <param.AutoInferUnboundedSizeThreshold />
-    <param.EnableFixedPointStep />
+    <param.AutoInferUseVariableSize>false</param.AutoInferUseVariableSize>
+    <param.AutoInferUseUnboundedSize>false</param.AutoInferUseUnboundedSize>
+    <param.AutoInferVariableSizeThreshold>1024</param.AutoInferVariableSizeThreshold>
+    <param.AutoInferUnboundedSizeThreshold>2048</param.AutoInferUnboundedSizeThreshold>
+    <param.EnableFixedPointStep>false</param.EnableFixedPointStep>
     <param.EnableScreener>false</param.EnableScreener>
     <param.AnnotationChecksum>1810886852</param.AnnotationChecksum>
     <var.LegacyTarget />
@@ -858,15 +866,15 @@
     <param.unifiedParamStorage />
     <var.gc.lastOutputRoot>codegen\lib\dpc</var.gc.lastOutputRoot>
     <var.gc.lastOutputType>C_CODE</var.gc.lastOutputType>
-    <var.gc.preBuildChecksum>2226162725</var.gc.preBuildChecksum>
-    <var.cfi.lastOutputRoot>codegen\mex\dpc_mex</var.cfi.lastOutputRoot>
-    <var.cfi.preBuildChecksum>1944047943</var.cfi.preBuildChecksum>
+    <var.gc.preBuildChecksum>3680648587</var.gc.preBuildChecksum>
+    <var.cfi.lastOutputRoot>codegen\mex\dpc</var.cfi.lastOutputRoot>
+    <var.cfi.preBuildChecksum>3759174479</var.cfi.preBuildChecksum>
     <var.lastCfiTestSnippet>dpcCaller</var.lastCfiTestSnippet>
     <var.outdatedOnRestore>false</var.outdatedOnRestore>
-    <var.lastUserSourceChecksum>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;checksum&gt;&lt;includedFiles&gt;&lt;file&gt;Y:\ProjsMatlab\MatlabToC-Proj\src\dpcCodeGen\dpc.m&lt;/file&gt;&lt;/includedFiles&gt;&lt;value&gt;4285392748&lt;/value&gt;&lt;/checksum&gt;</var.lastUserSourceChecksum>
-    <var.sourceSetState>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;sourceModel&gt;&lt;primarySourceFiles&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\HandleBase.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\IndexBase.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\Matrix3DHandle.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\MatrixHandle.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\MatrixView.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\UnitSpacedIndex.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\Util.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\ViewBase.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabstub\Stub_Util_throwException.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatlabToC-Proj\src\dpcCodeGen\dpc.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatlabToC-Proj\src\dpcCodeGen\Stub_fft.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatlabToC-Proj\src\dpcCodeGen\Stub_ifft.m&lt;/file&gt;&lt;/primarySourceFiles&gt;&lt;fixedPointSourceFiles/&gt;&lt;fixedPointSourceRegistered&gt;false&lt;/fixedPointSourceRegistered&gt;&lt;fixedPointSourceSelected&gt;false&lt;/fixedPointSourceSelected&gt;&lt;/sourceModel&gt;</var.sourceSetState>
+    <var.lastUserSourceChecksum>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;checksum&gt;&lt;includedFiles&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\AllIndex.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\HandleBase.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\IndexBase.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\Matrix3DHandle.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\MatrixHandle.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\MatrixView.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\OperationValue.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\UnitSpacedIndex.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\Util.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\ViewBase.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabstub\Stub_fft.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabstub\Stub_Util_throwException.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\sample\dpcCodeGen\dpc.m&lt;/file&gt;&lt;/includedFiles&gt;&lt;value&gt;3551584226&lt;/value&gt;&lt;/checksum&gt;</var.lastUserSourceChecksum>
+    <var.sourceSetState>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;sourceModel&gt;&lt;primarySourceFiles&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\AllIndex.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\HandleBase.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\IndexBase.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\Matrix3DHandle.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\MatrixHandle.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\MatrixView.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\OperationValue.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\UnitSpacedIndex.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\Util.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\ViewBase.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabstub\Stub_fft.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabstub\Stub_Util_throwException.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_SMMul_Double.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\sample\dpcCodeGen\dpc.m&lt;/file&gt;&lt;/primarySourceFiles&gt;&lt;fixedPointSourceFiles/&gt;&lt;fixedPointSourceRegistered&gt;false&lt;/fixedPointSourceRegistered&gt;&lt;fixedPointSourceSelected&gt;false&lt;/fixedPointSourceSelected&gt;&lt;/sourceModel&gt;</var.sourceSetState>
     <param.forceMexBuild>false</param.forceMexBuild>
-    <param.NoDefaultJIT />
+    <param.NoDefaultJIT>false</param.NoDefaultJIT>
     <param.configImportActive>false</param.configImportActive>
     <var.isGpuCoder>false</var.isGpuCoder>
     <var.notGpuCoder>true</var.notGpuCoder>
@@ -880,16 +888,16 @@
     <param.CppNamespace />
     <param.gpu.Enabled>false</param.gpu.Enabled>
     <param.gpu.KernelNamePrefix />
-    <param.gpu.SelectCudaDevice />
-    <param.gpu.MaxKernelDepth />
+    <param.gpu.SelectCudaDevice>-1</param.gpu.SelectCudaDevice>
+    <param.gpu.MaxKernelDepth>0</param.gpu.MaxKernelDepth>
     <param.gpu.MallocMode>discrete</param.gpu.MallocMode>
-    <param.gpu.MallocThreshold />
-    <param.gpu.StackLimitPerThread />
+    <param.gpu.MallocThreshold>200</param.gpu.MallocThreshold>
+    <param.gpu.StackLimitPerThread>1024</param.gpu.StackLimitPerThread>
     <param.gpu.EnableCUBLAS>true</param.gpu.EnableCUBLAS>
     <param.gpu.EnableCUSOLVER>true</param.gpu.EnableCUSOLVER>
     <param.gpu.EnableCUFFT>true</param.gpu.EnableCUFFT>
     <param.gpu.Benchmarking>false</param.gpu.Benchmarking>
-    <param.gpu.SafeBuild />
+    <param.gpu.SafeBuild>false</param.gpu.SafeBuild>
     <param.gpu.ComputeCapability>3.5</param.gpu.ComputeCapability>
     <param.gpu.CustomComputeCapability />
     <param.gpu.CompilerFlags />
@@ -913,7 +921,7 @@
     <param.UsePreconditions>false</param.UsePreconditions>
     <param.FeatureFlags />
     <param.FixedPointMode>option.FixedPointMode.None</param.FixedPointMode>
-    <param.AutoScaleLoopIndexVariables />
+    <param.AutoScaleLoopIndexVariables>false</param.AutoScaleLoopIndexVariables>
     <param.ComputedFixedPointData>
       <ComputedEntities />
     </param.ComputedFixedPointData>
@@ -952,8 +960,8 @@
     <param.EnableCodeEfficiencyChecks>false</param.EnableCodeEfficiencyChecks>
     <param.DefaultFixedPointSignedness>option.DefaultFixedPointSignedness.Automatic</param.DefaultFixedPointSignedness>
     <param.FixedPointTypeProposalMode>option.FixedPointTypeProposalMode.ProposeFractionLengths</param.FixedPointTypeProposalMode>
-    <param.EnableFixedPointStep />
-    <var.lastFixedPointAction />
+    <param.EnableFixedPointStep>false</param.EnableFixedPointStep>
+    <var.lastFixedPointAction>option.fixedPointAction.none</var.lastFixedPointAction>
     <var.lastSimContext />
     <var.lastVerifyContext />
     <param.fpDataRoot />
@@ -961,7 +969,7 @@
     <var.snapshotChecksum />
     <param.fpLastConvertChecksum />
     <var.functionBlockSid />
-    <param.fptSignedness />
+    <param.fptSignedness>false</param.fptSignedness>
     <var.FixedPointAnalysisMode>option.FixedPointAnalysisMode.Sim</var.FixedPointAnalysisMode>
     <param.FixedPointUseDesignRanges>false</param.FixedPointUseDesignRanges>
     <unset>
@@ -1114,7 +1122,7 @@
       </file>
     </fileset.inputtypes>
     <build-deliverables>
-      <file location="${PROJECT_ROOT}\codegen\lib\dpc" name="dpc.lib" optional="false">Y:\ProjsMatlab\MatlabToC-Proj\src\dpcCodeGen\codegen\lib\dpc\dpc.lib</file>
+      <file location="${PROJECT_ROOT}\codegen\lib\dpc" name="dpc.lib" optional="false">Y:\ProjsMatlab\MatalbCoder\src\sample\dpcCodeGen\codegen\lib\dpc\dpc.lib</file>
     </build-deliverables>
     <workflow />
     <matlab>

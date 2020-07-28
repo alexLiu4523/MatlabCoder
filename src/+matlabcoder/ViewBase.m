@@ -21,6 +21,10 @@ classdef ViewBase
       res = numel(this.indexes);
     end
     
+    function res = getIndexAt(this, i)
+      res = this.indexes{i};
+    end
+    
     function res = assign(this, B)
       if matlabcoder.OperationValue.isOperationValue(B) && this == B.operandA
         % handle self assignment like `A = A + B`
@@ -63,9 +67,26 @@ classdef ViewBase
       res = this.eqImpl(other);
     end
     
-    % plus(this, B);
+    % optional overloaded operations (by default just throw exceptions)
     
+    function res = plus(this, B)
+      res = matlabcoder.ViewBase.throwForUnsupportOperation();
+    end
     
+    % Element-wise multiplication, A .* b
+    function res = times(this, b)
+      res = matlabcoder.ViewBase.throwForUnsupportOperation();
+    end
+    
+    % optional MATLAB builtin functions for vectores/matrices
+    
+    function res = min(this)
+      res = matlabcoder.ViewBase.throwForUnsupportOperation();
+    end
+    
+    function res = max(this)
+      res = matlabcoder.ViewBase.throwForUnsupportOperation();
+    end
     
   end
   
@@ -87,9 +108,7 @@ classdef ViewBase
     eqImpl(this, other)
     
     
-    % MATLAB builtin functions for vectores/matrices
-    min(this);
-    max(this);
+
     
   end
   
@@ -97,6 +116,10 @@ classdef ViewBase
     
     function res = isView(obj)
       res = isa(obj, 'matlabcoder.ViewBase');
+    end
+    
+    function res = throwForUnsupportOperation()
+      res = matlabcoder.Util.throwException("ViewBase:operation:UnsupportOperation", "");
     end
     
   end

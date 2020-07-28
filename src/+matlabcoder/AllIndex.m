@@ -33,6 +33,9 @@ classdef AllIndex < matlabcoder.IndexBase
   
   properties(Constant)
     INSTANCE = matlabcoder.AllIndex();
+    
+    % FIXME: Fix error of `Initial values of class types can only be used for reading properties.` 
+    %   after calling `matlabcoder.AllIndex.INSTANCE`.
   end
   
   methods(Static = true)

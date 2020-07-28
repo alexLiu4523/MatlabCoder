@@ -17,17 +17,17 @@ for i = 1:uiQNum*uiNNum
     
     % #CHANGE
     %
-    % Ô­Ê¼ Matlab :
+    % åŸå§‹ Matlab :
     % piFlag(:)=pfSrcAmp > ftestThres * fBackAmp;
     % piFlag, pfSrcAmp are vectors of size m, ftestThres and fBackAmp are scalars
     %
-    % Ô­Ê¼ C :
+    % åŸå§‹ C :
     % visp_vput_f(pfThresView, 0, ftestThres * fBackAmp);
     % visp_vlgt_f(pfSrcAmpView, pfThresView, pblFlagView);
-    % ¼´£¬Ê×ÏÈÌî³äÏòÁ¿ pfThresView µÄËùÓĞÖµÎª ftestThres * fBackAmp 
-    % È»ºó£¬Ê¹ÓÃÏòÁ¿´óÓÚ±È½ÏµÃ³ö½á¹û
+    % å³ï¼Œé¦–å…ˆå¡«å……å‘é‡ pfThresView çš„æ‰€æœ‰å€¼ä¸º ftestThres * fBackAmp 
+    % ç„¶åï¼Œä½¿ç”¨å‘é‡å¤§äºæ¯”è¾ƒå¾—å‡ºç»“æœ
     %
-    % ÓÃ Matlab ÊµÏÖ C µÄÂß¼­, ÔòÎª£º
+    % ç”¨ Matlab å®ç° C çš„é€»è¾‘, åˆ™ä¸ºï¼š
     temp1 = ftestThres * fBackAmp; % temp1 is scalar
     vftestThres = zeros(uiMNum);
     Stub_VsipVputDouble(vftestThres, 0, temp1);

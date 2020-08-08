@@ -20,6 +20,10 @@ classdef Matrix3DHandle < matlabcoder.HandleBase
       end
     end
     
+    function res = fullView(this)
+      res = this.subview(matlabcoder.AllIndex.INSTANCE, matlabcoder.AllIndex.INSTANCE, matlabcoder.AllIndex.INSTANCE);
+    end
+    
     function res = eqImpl(this, other)
       % TODO should be reference equal ?
       if isa(other, 'matlabcoder.Matrix3DHandle')
@@ -33,8 +37,8 @@ classdef Matrix3DHandle < matlabcoder.HandleBase
   
   methods(Static)
     
-    function res = isMartixHandle(obj)
-      res = isa(obj, 'matlabcoder.MatrixHandle');
+    function res = isMartix3DHandle(obj)
+      res = isa(obj, 'matlabcoder.Matrix3DHandle');
     end
     
   end

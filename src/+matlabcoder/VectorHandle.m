@@ -16,6 +16,10 @@ classdef VectorHandle < matlabcoder.HandleBase
       res = matlabcoder.MatrixView(this, {index});
     end
     
+    function res = fullView(this)
+      res = this.subview(matlabcoder.AllIndex.INSTANCE);
+    end
+    
     function res = eqImpl(this, other)
       % TODO should be reference equal ?
       if isa(other, 'matlabcoder.VectorHandle')

@@ -19,6 +19,10 @@ classdef MatrixHandle < matlabcoder.HandleBase
         throw(MException('MatrixHandle:subview:IllegalArgument', 'Unhandled subview index type.'));
       end
     end
+        
+    function res = fullView(this)
+      res = this.subview(matlabcoder.AllIndex(), matlabcoder.AllIndex());
+    end
     
     function res = eqImpl(this, other)
       % TODO should be reference equal ?

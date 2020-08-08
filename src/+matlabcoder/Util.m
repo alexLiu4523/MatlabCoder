@@ -2,6 +2,10 @@ classdef Util
   
   methods(Static)
     
+    function res = isNumericScalar(operand)
+      res = isnumeric(operand) && isscalar(operand);
+    end
+    
     function res = getOperandData(operand)
       if matlabcoder.ViewBase.isView(operand)
         res = operand.viewData();

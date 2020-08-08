@@ -93,6 +93,10 @@ classdef HandleBase < handle
   methods(Abstract)
     
     subview(this, varargin);
+    % gets a view of handle's part data according to given indexes
+    
+    fullView(this);
+    % gets a view of handle's all data
     
     eqImpl(this, other);
     

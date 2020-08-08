@@ -11,6 +11,11 @@ classdef UnitSpacedIndex < matlabcoder.IndexBase
       assert(startIndex > 0 && startIndex <= endIndex);
     end
     
+    function res = eqImpl(this, other)
+      res = matlabcoder.IndexBase.isUnitSpacedIndex(other) ...
+        && this.startIndex == other.startIndex && this.endIndex == other.endIndex;
+    end
+    
     function res = toVector(this)
       res = this.startIndex : this.endIndex;
     end

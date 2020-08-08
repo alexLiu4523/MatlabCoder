@@ -18,7 +18,8 @@ for chan = 1:CNum
     temp1View.assign(temp1View .* DpcCoef);
 
     % temp1 = Stub_ifft(temp1,DpcFftNum);
-    temp1Handle.data = matlabstub.Stub_fft(temp1Handle.data, DpcFftNum);
+    % temp1Handle.data = matlabstub.Stub_fft(temp1Handle.data, DpcFftNum);
+    visplstub.Stub_Vsip_Fft_Double(temp1Handle.fullView(), DpcFftNum, temp1Handle.fullView());
     
     % DestData(:,p,chan) = temp1(DpcDelay+1:DpcDelay+DataLen);
     temp1SubView = temp1Handle.subview(matlabcoder.UnitSpacedIndex(DpcDelay+1, DpcDelay+DataLen)); % temp1(DpcDelay+1:DpcDelay+DataLen)

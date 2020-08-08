@@ -22,7 +22,15 @@ classdef IndexBase
       this.startIndex = startIndex;
       this.endIndex = endIndex;
     end
+    
+    function res = eq(this, other)
+      res = this.eqImpl(other);
+    end
 
+    function res = eqImpl(this, other)
+      res = matlabcoder.ViewBase.throwForUnsupportOperation();
+    end
+    
     function res = isVectorable(this)
       res = matlabcoder.IndexBase.isVectorableIndex(this);
     end
@@ -47,6 +55,10 @@ classdef IndexBase
   
   methods(Static)
     
+    function res = isIndex(obj)
+      res = isa(obj, 'matlabcoder.IndexBase');
+    end
+    
     function res = isUnitSpacedIndex(index)
       res = isa(index, 'matlabcoder.UnitSpacedIndex');
     end
@@ -64,7 +76,7 @@ classdef IndexBase
     function res = isSinglePositionIndex(index)
       res = isa(index, 'matlabcoder.SinglePositionIndex');
     end
-
+    
     function res = isPositionIndex(index)
       res = isa(index, 'matlabcoder.PositionIndex');
     end
@@ -85,7 +97,7 @@ classdef IndexBase
     
     function res = isComposeableIndex(index)
       % Note: If `isComposeableIndex(index)` returns ture, than `index.compose(otherIndex)` and `otherIndex.compose(index)` should work.
-      res = matlabcoder.IndexBase.isVectorableIndex(index) ... 
+      res = matlabcoder.IndexBase.isVectorableIndex(index) ...
         || matlabcoder.IndexBase.isAllIndex(index) || matlabcoder.IndexBase.isEmptyIndex(index);
     end
     
@@ -97,6 +109,32 @@ classdef IndexBase
       newEndIndex = startIndex - 1 + subEndIndex;
       if newEndIndex > endIndex
         newEndIndex = endIndex;
+      end
+    end
+    
+    function res = checkIndexes(varargin)
+      % check whether we pass some elements that is not an index instance
+      res = isempty(varargin(~matlabcoder.IndexBase.isIndex(varargin)));
+      if ~res
+        matlabcoder.Util.throwException('IndexBase:checkIndexes:IllegalArgument', '')
+      end
+    end
+    
+    function res = convertToIndex(x)
+      if matlabcoder.IndexBase.isIndex(x)
+        res = x;
+      elseif isnumeric(x) && isscalar(x) && x > 0
+        res = matlabcoder.SinglePositionIndex(x);
+      elseif isnumeric(x) && isvector(x) && isempty( x(x <= 0))
+        res = matlabcoder.PositionIndex(x);
+      elseif isa(x,  'function_handle')
+        res = matlabcoder.LogicalIndex(x);
+      elseif isempty(x)
+        res = matlabcoder.EmptyIndex.INSTANCE;
+      elseif x == ':'
+        res = matlabcoder.AllIndex.INSTANCE;
+      else
+        matlabcoder.Util.throwException('IndexBase:convertToIndex:IllegalArgument', '')
       end
     end
     

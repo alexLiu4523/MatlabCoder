@@ -26,12 +26,13 @@ classdef ViewBase
     end
     
     function res = assign(this, B)
-      if matlabcoder.OperationValue.isOperationValue(B) && this == B.operandA
-        % handle self assignment like `A = A + B`
-        res = this.operateSelfImpl(B.operation, B.operandB);
-      else
-        res = this.assignImpl(B);
-      end
+      res = this.assignImpl(B);
+%       if matlabcoder.OperationValue.isOperationValue(B) && this == B.operandA
+%         % handle self assignment like `A = A + B`
+%         res = this.operateSelfImpl(B.operation, B.operandB);
+%       else
+%         res = this.assignImpl(B);
+%       end
     end
     
     function res = subsasgn(this, s, B)
@@ -94,6 +95,8 @@ classdef ViewBase
     
     viewData(this);
     
+    matlabIndexes(this);
+    
     % viewInstance(index1, index2, ...) => viewInstance.subview(index1, index2, ...)
     subview(this, varargin);
     
@@ -103,12 +106,8 @@ classdef ViewBase
     % this = this op operand => this.operateSelfImpl(op, operand)
     operateSelfImpl(this, operation, operand);
     
-
     % implementations of overloaded operations
     eqImpl(this, other)
-    
-    
-
     
   end
   

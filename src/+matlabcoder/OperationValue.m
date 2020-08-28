@@ -45,15 +45,31 @@ classdef OperationValue
     end
     
     function res = of(operandA, operation, operandB)
+      
+      %根据操作数情况指定具体的实现类，如果想要允许嵌套，必须改动此处
+      
       if matlabcoder.MatrixView.isMatrixView(operandA)
-        if matlabcoder.MatrixView.isMatrixView(operandB)
+        if nargin == 2       
+          res = matlabcoder.OperationValueForMatrixUnary(operandA, operation);
+        elseif matlabcoder.MatrixView.isMatrixView(operandB)
           res = matlabcoder.OperationValueForMatrixMatrix(operandA, operation, operandB);
         elseif isscalar(operandB)
           res = matlabcoder.OperationValueForMatrixScalar(operandA, operation, operandB);
         else
           matlabcoder.Util.throwException('OperationValue:of:UnsupportedOperation', '');
         end
-        
+
+      elseif matlabcoder.VectorView.isVectorView(operandA)
+        if nargin == 2       
+          res = matlabcoder.OperationValueForVectorUnary(operandA, operation);
+        elseif matlabcoder.VectorView.isVectorView(operandB)
+          res = matlabcoder.OperationValueForVectorVector(operandA, operation, operandB);
+        elseif isscalar(operandB)
+          res = matlabcoder.OperationValueForVectorScalar(operandA, operation, operandB);
+        else
+          matlabcoder.Util.throwException('OperationValue:of:UnsupportedOperation', '');
+        end  
+
       else
          matlabcoder.Util.throwException('OperationValue:of:UnsupportedOperation', '');
       end

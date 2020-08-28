@@ -10,3 +10,4 @@ function Stub_Vsip_SMAdd(operandA, operandB, this)
 
 end
 
+%exchange of args happens when this func is called

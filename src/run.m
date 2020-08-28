@@ -21,6 +21,7 @@ view2 = handle1.subview(matlabcoder.UnitSpacedIndex(2, 4), matlabcoder.UnitSpace
 %  0,0,0];
 
 handle2 = matlabcoder.MatrixHandle(@() zeros(5, 5));
+% handle2 = matlabcoder.MatrixHandle(@() [1:0.01:10; 1:0.01:10]);
 view3 = handle2.subview(matlabcoder.UnitSpacedIndex(2, 4), matlabcoder.UnitSpacedIndex(2, 4));
 view3.assign(view1 + view2);
 % now handle2 is 

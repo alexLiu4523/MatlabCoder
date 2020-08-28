@@ -6,6 +6,18 @@ classdef Util
       res = isnumeric(operand) && isscalar(operand);
     end
     
+    function res = isNumericArray(operand)
+      res = isnumeric(operand) && numel(operand) > 1;
+    end
+    
+    function res = isNumericMatrixOfDim(operand, dim)
+      res = isnumeric(operand) && numel(operand) == dim;
+    end
+    
+    function res = isNumericMatrix(operand)
+      res = matlabcoder.Util.isNumericMatrixOfDim(operand, 2);
+    end
+    
     function res = getOperandData(operand)
       if matlabcoder.ViewBase.isView(operand)
         res = operand.viewData();

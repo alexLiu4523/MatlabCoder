@@ -10,7 +10,7 @@ classdef ViewBase
     
     function this = ViewBase(handle, indexes)
       if ~isa(handle, 'matlabcoder.HandleBase')
-        throw(MException('MatrixHandle:Constructor:IllegalArgument', 'Handle type error: %s.', class(handle)));
+        matlabcoder.Util.throwException('ViewBase:Constructor:IllegalArgument', 'Handle type error: %s.', class(handle));
       end
       
       this.dataHandle = handle;
@@ -27,12 +27,12 @@ classdef ViewBase
     
     function res = assign(this, B)
       res = this.assignImpl(B);
-%       if matlabcoder.OperationValue.isOperationValue(B) && this == B.operandA
-%         % handle self assignment like `A = A + B`
-%         res = this.operateSelfImpl(B.operation, B.operandB);
-%       else
-%         res = this.assignImpl(B);
-%       end
+      %       if matlabcoder.OperationValue.isOperationValue(B) && this == B.operandA
+      %         % handle self assignment like `A = A + B`
+      %         res = this.operateSelfImpl(B.operation, B.operandB);
+      %       else
+      %         res = this.assignImpl(B);
+      %       end
     end
     
     function res = subsasgn(this, s, B)
@@ -45,15 +45,13 @@ classdef ViewBase
     
     function res = subsasgnImplOfIndex(this, subs, B)
       coder.inline('never');
-      if (isa(B, 'matlabcoder.MatrixOperationValue'))
-        if matlabcoder.OperationValue.isOperationValue(B) && ...
-            matlabcoder.ViewBase.isView(B.operandA) && subs == B.operandA.subs
-          % handle self-assignment like A(1, 2) = A(1, 2) + B
-          % TODO: Check
-          view = this.subview(subs{:});
-          view.operateSelfImpl(B.operation, B.operandB);
-          res = view;
-        end
+      if matlabcoder.OperationValue.isOperationValue(B) && ...
+          matlabcoder.ViewBase.isView(B.operandA) && this.subs == B.operandA.subs
+        % TODO: handle self-assignment like A(1, 2) = A(1, 2) + B
+        view = this.subview(subs{:});
+        view.operateSelfImpl(B.operation, B.operandB);
+        res = view;
+        
       else
         % TODO: Check
         view = this.subview(subs{:});
@@ -118,7 +116,7 @@ classdef ViewBase
     end
     
     function res = throwForUnsupportOperation()
-      res = matlabcoder.Util.throwException("ViewBase:operation:UnsupportOperation", "");
+      res = matlabcoder.Util.throwException('ViewBase:operation:UnsupportOperation', '');
     end
     
   end

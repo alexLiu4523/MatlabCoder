@@ -2,18 +2,19 @@ classdef HandleBase < handle
   
   properties
     data
+    vsipBlockContainer = 0
   end
   
   methods
     
     function this = HandleBase(arg, varargin)
-      % see [[https://ww2.mathworks.cn/help/matlab/ref/varargin.html]]
+      % @see [[https://ww2.mathworks.cn/help/matlab/ref/varargin.html]]
       if isempty(varargin) % receive olny one argument
         if ~isscalar(arg) % receive data
           this.data = arg;
         elseif isa(arg, 'matlabcoder.HandleBase') % receive a handle, just copy its data
           this.data = arg.data;
-        elseif isa(arg, 'function_handle') % receive a data create function
+        elseif isa(arg, 'function_handle') % receive a data creation function
           this.data = arg();
         else
           throw(MException('HandleBase:Constructor:IllegalArgument', 'Can not create a HandleBase of type %s', class(arg)));
@@ -35,11 +36,14 @@ classdef HandleBase < handle
             this.data = eye(varargin{:});
           case matlabcoder.MatrixCreationMethodEnum.Diag
             this.data = diag(varargin{:});
-            % TODO Add other constructor
+            % TODO Add other constructors
           otherwise
             throw(MException('HandleBase:constructor:IllegalArgument', 'Unhandled matrix createion method: %s', class(createMethodEnum)));
         end
       end
+      
+      this.vsipBlockContainer = 1;
+      
     end
     
     % @see [[https://www.mathworks.com/help/matlab/matlab_oop/implementing-operators-for-your-class.html Operator Overloading]]

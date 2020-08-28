@@ -133,8 +133,12 @@ classdef MatrixView < matlabcoder.ViewBase
       elseif matlabcoder.MatrixHandle.isMartixHandle(other)
         this.dataHandle.data(this.matlabIndexes{:}) = other.data;
         
-      elseif isnumeric(other) && numel(other) > 1
+      elseif matlabcoder.Util.isNumericMatrix(other)
         % other is a builtin numeric matrix
+        this.dataHandle.data(this.matlabIndexes{:}) = other;
+        
+      elseif matlabcoder.Util.isNumericScalar(other)
+        % other is a scalar
         this.dataHandle.data(this.matlabIndexes{:}) = other;
         
       else

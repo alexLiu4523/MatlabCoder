@@ -9,6 +9,9 @@ classdef UnitSpacedIndex < matlabcoder.IndexBase
       this = this@matlabcoder.IndexBase(startIndex, endIndex);
       
       assert(startIndex > 0 && startIndex <= endIndex);
+      
+      %region ClassFuncImpl:UnitSpacedIndex.ctor.post
+      %endregion ClassFuncImpl:UnitSpacedIndex.ctor.post
     end
     
     function res = eqImpl(this, other)
@@ -56,7 +59,7 @@ classdef UnitSpacedIndex < matlabcoder.IndexBase
         else
           res = matlabcoder.EmptyIndex.INSTANCE;
         end
-     
+        
       elseif matlabcoder.IndexBase.isSinglePositionIndex(otherIndex)
         newPosition = this.startIndex - 1 + otherIndex.getPosition();
         if newPosition <= this.endIndex

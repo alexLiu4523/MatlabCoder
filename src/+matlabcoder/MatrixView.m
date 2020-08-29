@@ -119,7 +119,7 @@ classdef MatrixView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('MatrixView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.MatrixOperationEnum.Times
             if matlabcoder.MatrixView.isMatrixView(other.operandA) && matlabcoder.Util.isNumericScalar(other.operandB)
               % this(view) = other.operandA(view) * other.operandB(view)
@@ -128,7 +128,7 @@ classdef MatrixView < matlabcoder.ViewBase
               matlabcoder.Util.throwException('MatrixView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
             % Add other cases
-          
+            
           case matlabcoder.MatrixOperationEnum.MinusScalar
             if matlabcoder.MatrixView.isMatrixView(other.operandA) && matlabcoder.Util.isNumericScalar(other.operandB)
               % this(view) = other.operandA(view) - other.operandB(scalar) =>
@@ -144,7 +144,7 @@ classdef MatrixView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('MatrixView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-         
+            
           case matlabcoder.MatrixOperationEnum.RightDivideScalar
             if matlabcoder.MatrixView.isMatrixView(other.operandA) && matlabcoder.Util.isNumericScalar(other.operandB)
               % this(view) = other.operandA(view) ./ other.operandB(scalar)
@@ -152,7 +152,7 @@ classdef MatrixView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('MatrixView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.MatrixOperationEnum.RightDivideMatrix
             if matlabcoder.MatrixView.isMatrixView(other.operandA) && matlabcoder.MatrixView.isMatrixView(other.operandB)
               % this(view) = other.operandA(view) ./ other.operandB(view)
@@ -160,7 +160,7 @@ classdef MatrixView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('MatrixView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.MatrixOperationEnum.LeftDivideScalar
             if matlabcoder.MatrixView.isMatrixView(other.operandA) && matlabcoder.Util.isNumericScalar(other.operandB)
               % this(view) = other.operandA(view) .\ other.operandB(scalar)
@@ -168,7 +168,7 @@ classdef MatrixView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('MatrixView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.MatrixOperationEnum.LeftDivideMatrix
             if matlabcoder.MatrixView.isMatrixView(other.operandA) && matlabcoder.MatrixView.isMatrixView(other.operandB)
               % this(view) = other.operandA(view) .\ other.operandB(view)
@@ -176,7 +176,7 @@ classdef MatrixView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('MatrixView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-          
+            
           case matlabcoder.MatrixOperationEnum.MatrixTimesMatrix
             if matlabcoder.MatrixView.isMatrixView(other.operandA) && matlabcoder.MatrixView.isMatrixView(other.operandB)
               % this(view) = other.operandA(view) * other.operandB(view)
@@ -184,7 +184,7 @@ classdef MatrixView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('MatrixView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.MatrixOperationEnum.MatrixTimesVector
             if matlabcoder.MatrixView.isMatrixView(other.operandA) && matlabcoder.VectorView.isVectorView(other.operandB)
               % this(view) = other.operandA(view) * other.operandB(view)
@@ -192,7 +192,7 @@ classdef MatrixView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('MatrixView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.MatrixOperationEnum.LessThanMatrix
             if matlabcoder.MatrixView.isMatrixView(other.operandA) && matlabcoder.MatrixView.isMatrixView(other.operandB)
               % this(view) = other.operandA(view) < other.operandB(view)
@@ -200,7 +200,7 @@ classdef MatrixView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('MatrixView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.MatrixOperationEnum.LessThanScalar
             if matlabcoder.MatrixView.isMatrixView(other.operandA) && matlabcoder.Util.isNumericScalar(other.operandB)
               % this(view) = other.operandA(view) < other.operandB(scalar) aka other.operandB(scalar) > other.operandA(view)
@@ -208,7 +208,7 @@ classdef MatrixView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('MatrixView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.MatrixOperationEnum.GreaterThanMatrix
             if matlabcoder.MatrixView.isMatrixView(other.operandA) && matlabcoder.MatrixView.isMatrixView(other.operandB)
               % this(view) = other.operandA(view) > other.operandB(view)
@@ -216,7 +216,7 @@ classdef MatrixView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('MatrixView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.MatrixOperationEnum.GreaterThanScalar
             if matlabcoder.MatrixView.isMatrixView(other.operandA) && matlabcoder.Util.isNumericScalar(other.operandB)
               % this(view) = other.operandA(view) > other.operandB(scalar) aka other.operandB(scalar) < other.operandA(view)
@@ -224,7 +224,7 @@ classdef MatrixView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('MatrixView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.MatrixOperationEnum.LessEqualMatrix
             if matlabcoder.MatrixView.isMatrixView(other.operandA) && matlabcoder.MatrixView.isMatrixView(other.operandB)
               % this(view) = other.operandA(view) <= other.operandB(view)
@@ -232,7 +232,7 @@ classdef MatrixView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('MatrixView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.MatrixOperationEnum.LessEqualScalar
             if matlabcoder.MatrixView.isMatrixView(other.operandA) && matlabcoder.Util.isNumericScalar(other.operandB)
               % this(view) = other.operandA(view) <= other.operandB(scalar) aka other.operandB(scalar) >= other.operandA(view)
@@ -240,7 +240,7 @@ classdef MatrixView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('MatrixView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.MatrixOperationEnum.GreaterEqualMatrix
             if matlabcoder.MatrixView.isMatrixView(other.operandA) && matlabcoder.MatrixView.isMatrixView(other.operandB)
               % this(view) = other.operandA(view) >= other.operandB(view)
@@ -248,7 +248,7 @@ classdef MatrixView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('MatrixView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.MatrixOperationEnum.GreaterEqualScalar
             if matlabcoder.MatrixView.isMatrixView(other.operandA) && matlabcoder.Util.isNumericScalar(other.operandB)
               % this(view) = other.operandA(view) >= other.operandB(scalar) aka other.operandB(scalar) <= other.operandA(view)
@@ -256,7 +256,7 @@ classdef MatrixView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('MatrixView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.MatrixOperationEnum.NotEqualMatrix
             if matlabcoder.MatrixView.isMatrixView(other.operandA) && matlabcoder.MatrixView.isMatrixView(other.operandB)
               % this(view) = other.operandA(view) ~= other.operandB(view)
@@ -264,7 +264,7 @@ classdef MatrixView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('MatrixView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.MatrixOperationEnum.NotEqualScalar
             if matlabcoder.MatrixView.isMatrixView(other.operandA) && matlabcoder.Util.isNumericScalar(other.operandB)
               % this(view) = other.operandA(view) ~= other.operandB(scalar)
@@ -272,7 +272,7 @@ classdef MatrixView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('MatrixView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.MatrixOperationEnum.EqualToMatrix
             if matlabcoder.MatrixView.isMatrixView(other.operandA) && matlabcoder.MatrixView.isMatrixView(other.operandB)
               % this(view) = other.operandA(view) == other.operandB(view)
@@ -280,7 +280,7 @@ classdef MatrixView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('MatrixView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.MatrixOperationEnum.EqualToScalar
             if matlabcoder.MatrixView.isMatrixView(other.operandA) && matlabcoder.Util.isNumericScalar(other.operandB)
               % this(view) = other.operandA(view) == other.operandB(scalar)
@@ -288,7 +288,7 @@ classdef MatrixView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('MatrixView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.MatrixOperationEnum.LogicalAnd
             if matlabcoder.MatrixView.isMatrixView(other.operandA) && matlabcoder.MatrixView.isMatrixView(other.operandB)
               % this(view) = other.operandA(view) & other.operandB(view)
@@ -296,7 +296,7 @@ classdef MatrixView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('MatrixView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.MatrixOperationEnum.LogicalOr
             if matlabcoder.MatrixView.isMatrixView(other.operandA) && matlabcoder.MatrixView.isMatrixView(other.operandB)
               % this(view) = other.operandA(view) | other.operandB(view)
@@ -304,7 +304,7 @@ classdef MatrixView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('MatrixView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-          
+            
           case matlabcoder.MatrixOperationEnum.UnaryPlus
             if matlabcoder.MatrixView.isMatrixView(other.operandA)
               % this(view) = +other.operandA(view)
@@ -312,7 +312,7 @@ classdef MatrixView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('MatrixView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.MatrixOperationEnum.LogicalNot
             if matlabcoder.MatrixView.isMatrixView(other.operandA)
               % this(view) = ~other.operandA(view)
@@ -320,7 +320,7 @@ classdef MatrixView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('MatrixView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.MatrixOperationEnum.UnaryMinus
             if matlabcoder.MatrixView.isMatrixView(other.operandA)
               % this(view) = -other.operandA(view)
@@ -328,7 +328,7 @@ classdef MatrixView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('MatrixView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.MatrixOperationEnum.CTranspose
             if matlabcoder.MatrixView.isMatrixView(other.operandA)
               % this(view) = -other.operandA(view)
@@ -336,7 +336,7 @@ classdef MatrixView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('MatrixView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.MatrixOperationEnum.Transpose
             if matlabcoder.MatrixView.isMatrixView(other.operandA)
               % this(view) = -other.operandA(view)
@@ -344,24 +344,24 @@ classdef MatrixView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('MatrixView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-          
+            
           case matlabcoder.MatrixOperationEnum.Max
             if matlabcoder.MatrixView.isMatrixView(other.operandA)
               % this(view) = -other.operandA(view)
               visplstub.Stub_Vsip_MTrans(other.operandA,this);
             else
               matlabcoder.Util.throwException('MatrixView:assignImpl:IllegalArgument', 'Illegal argument.');
-            end  
-          
-
+            end
+            
+            
           case matlabcoder.MatrixOperationEnum.Cos
             if matlabcoder.MatrixView.isMatrixView(other.operandA)
               % this(view) = cos(other.operandA(view))
               visplstub.Stub_Vsip_MCos(other.operandA,this);
             else
               matlabcoder.Util.throwException('MatrixView:assignImpl:IllegalArgument', 'Illegal argument.');
-            end  
-
+            end
+            
           case matlabcoder.MatrixOperationEnum.Log
             if matlabcoder.MatrixView.isMatrixView(other.operandA)
               % this(view) = log(other.operandA(view))
@@ -369,7 +369,7 @@ classdef MatrixView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('MatrixView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.MatrixOperationEnum.Sin
             if matlabcoder.MatrixView.isMatrixView(other.operandA)
               % this(view) = log(other.operandA(view))
@@ -377,7 +377,7 @@ classdef MatrixView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('MatrixView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.MatrixOperationEnum.SqrtR
             if matlabcoder.MatrixView.isMatrixView(other.operandA)
               % this(view) = sqrt(other.operandA(view))
@@ -385,7 +385,7 @@ classdef MatrixView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('MatrixView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.MatrixOperationEnum.SqrtC
             if matlabcoder.MatrixView.isMatrixView(other.operandA)
               % this(view) = sqrt(other.operandA(view))
@@ -393,7 +393,7 @@ classdef MatrixView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('MatrixView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.MatrixOperationEnum.Abs
             if matlabcoder.MatrixView.isMatrixView(other.operandA)
               % this(view) = abs(other.operandA(view))
@@ -401,7 +401,7 @@ classdef MatrixView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('MatrixView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.MatrixOperationEnum.MMean
             if matlabcoder.MatrixView.isMatrixView(other.operandA)
               % this(view) = log(other.operandA(view))
@@ -409,7 +409,7 @@ classdef MatrixView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('MatrixView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.MatrixOperationEnum.CMMean
             if matlabcoder.MatrixView.isMatrixView(other.operandA)
               % this(view) = log(other.operandA(view))
@@ -417,7 +417,7 @@ classdef MatrixView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('MatrixView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.MatrixOperationEnum.Conj
             if matlabcoder.MatrixView.isMatrixView(other.operandA)
               % this(view) = conj(other.operandA(view))
@@ -425,7 +425,7 @@ classdef MatrixView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('MatrixView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.MatrixOperationEnum.MCumsum
             if matlabcoder.MatrixView.isMatrixView(other.operandA)&&matlabcoder.Util.isNumericScalar(other.operandB)
               % this(view) = cumsum(other.operandA(view))
@@ -433,7 +433,7 @@ classdef MatrixView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('MatrixView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.MatrixOperationEnum.CMCumsum
             if matlabcoder.MatrixView.isMatrixView(other.operandA)&&matlabcoder.Util.isNumericScalar(other.operandB)
               % this(view) = cumsum(other.operandA(view))
@@ -441,7 +441,7 @@ classdef MatrixView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('MatrixView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.MatrixOperationEnum.Exp10
             if matlabcoder.MatrixView.isMatrixView(other.operandA)
               % this(view) = 10^(other.operandA(view))
@@ -449,7 +449,7 @@ classdef MatrixView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('MatrixView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.MatrixOperationEnum.Sq2
             if matlabcoder.MatrixView.isMatrixView(other.operandA)
               % this(view) = (other.operandA(view)).^2
@@ -457,7 +457,7 @@ classdef MatrixView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('MatrixView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.MatrixOperationEnum.Sumval
             if matlabcoder.MatrixView.isMatrixView(other.operandA)
               % this(view) = sum(other.operandA(view)(:))
@@ -465,7 +465,7 @@ classdef MatrixView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('MatrixView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           otherwise
             matlabcoder.Util.throwException('MatrixView:assignImpl:IllegalArgument', 'Illegal argument.');
         end
@@ -487,7 +487,7 @@ classdef MatrixView < matlabcoder.ViewBase
       res = this;
       
     end
-  
+    
     % This function is depreacted.
     % this = this op operand => this.operateSelfImpl(op, operand)
     function res = operateSelfImpl(this, operation, operand)
@@ -514,7 +514,7 @@ classdef MatrixView < matlabcoder.ViewBase
       res = this;
     end
     
-    %region Operators 
+    %region Operators
     
     % https://www.mathworks.com/help/matlab/ref/plus.html
     function res = plus(this, B)
@@ -544,7 +544,7 @@ classdef MatrixView < matlabcoder.ViewBase
       
     end
     
-
+    
     function res = minus(this, B)
       coder.inline('never');
       if matlabcoder.Util.isNumericScalar(B) % isscalar(B) && isnumeric(B)
@@ -566,7 +566,7 @@ classdef MatrixView < matlabcoder.ViewBase
         matlabcoder.Util.throwException('MatrixView:plus:IllegalArgument', 'Illegal argument.');
       end
     end
-
+    
     function res = ldivide(this, B)
       coder.inline('never');
       if matlabcoder.Util.isNumericScalar(B) % isscalar(B) && isnumeric(B)
@@ -578,7 +578,7 @@ classdef MatrixView < matlabcoder.ViewBase
       end
     end
     
-
+    
     function res = mtimes(this, B)
       coder.inline('never');
       if matlabcoder.VectorView.isVectorView(B)
@@ -589,7 +589,7 @@ classdef MatrixView < matlabcoder.ViewBase
         matlabcoder.Util.throwException('MatrixView:plus:IllegalArgument', 'Illegal argument.');
       end
     end
-
+    
     
     function res = lt(this, B)
       coder.inline('never');
@@ -601,7 +601,7 @@ classdef MatrixView < matlabcoder.ViewBase
         matlabcoder.Util.throwException('MatrixView:plus:IllegalArgument', 'Illegal argument.');
       end
     end
-
+    
     function res = gt(this, B)
       coder.inline('never');
       if matlabcoder.MatrixView.isMatrixView(B)
@@ -612,7 +612,7 @@ classdef MatrixView < matlabcoder.ViewBase
         matlabcoder.Util.throwException('MatrixView:plus:IllegalArgument', 'Illegal argument.');
       end
     end
-
+    
     function res = le(this, B)
       coder.inline('never');
       if matlabcoder.MatrixView.isMatrixView(B)
@@ -623,7 +623,7 @@ classdef MatrixView < matlabcoder.ViewBase
         matlabcoder.Util.throwException('MatrixView:plus:IllegalArgument', 'Illegal argument.');
       end
     end
-
+    
     function res = ge(this, B)
       coder.inline('never');
       if matlabcoder.MatrixView.isMatrixView(B)
@@ -634,172 +634,169 @@ classdef MatrixView < matlabcoder.ViewBase
         matlabcoder.Util.throwException('MatrixView:plus:IllegalArgument', 'Illegal argument.');
       end
     end
-
     
-      function res = ne(this, B)
-        coder.inline('never');
-        if matlabcoder.MatrixView.isMatrixView(B)
-          res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.NotEqualMatrix, B);
-        elseif matlabcoder.Util.isNumericScalar(B) % isscalar(B) && isnumeric(B)
-          res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.NotEqualScalar, B);
-        else
-          matlabcoder.Util.throwException('MatrixView:plus:IllegalArgument', 'Illegal argument.');
-        end
-      end
-
-      function res = eq(this, B)
-        coder.inline('never');
-        if matlabcoder.MatrixView.isMatrixView(B)
-          res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.EqualToMatrix, B);
-        elseif matlabcoder.Util.isNumericScalar(B) % isscalar(B) && isnumeric(B)
-          res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.EqualToScalar, B);
-        else
-          matlabcoder.Util.throwException('MatrixView:plus:IllegalArgument', 'Illegal argument.');
-        end
-      end
-
-      function res = and(this, B)
-        coder.inline('never');
-        if matlabcoder.MatrixView.isMatrixView(B)
-          res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.LogicalAnd, B);
-        else
-          matlabcoder.Util.throwException('MatrixView:plus:IllegalArgument', 'Illegal argument.');
-        end
-      end
-
-      function res = or(this, B)
-        ocder.inline('never');
-        if matlabcoder.MatrixView.isMatrixView(B)
-          res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.LogicalOr, B);
-        else
-          matlabcoder.Util.throwException('MatrixView:plus:IllegalArgument', 'Illegal argument.');
-        end
-      end
     
-      function res = uplus(this)
-        coder.inline('never');
-          res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.UnaryPlus);
+    function res = ne(this, B)
+      coder.inline('never');
+      if matlabcoder.MatrixView.isMatrixView(B)
+        res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.NotEqualMatrix, B);
+      elseif matlabcoder.Util.isNumericScalar(B) % isscalar(B) && isnumeric(B)
+        res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.NotEqualScalar, B);
+      else
+        matlabcoder.Util.throwException('MatrixView:plus:IllegalArgument', 'Illegal argument.');
       end
-
-      function res = uminus(this)
-        coder.inline('never');
-          res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.UnaryMinus);
-      end
-
-      function res = not(this)
-        coder.inline('never');
-        res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.LogicalNot);
-      end
-
-      function res = ctranspose(this)
-        coder.inline('never');
-        res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.CTranspose);
-      end
-
-      function res = transpose(this)
-        coder.inline('never');
-        res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.Transpose);
-      end
+    end
     
-      function res = min(this)
-        res = -1;
+    function res = eq(this, B)
+      coder.inline('never');
+      if matlabcoder.MatrixView.isMatrixView(B)
+        res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.EqualToMatrix, B);
+      elseif matlabcoder.Util.isNumericScalar(B) % isscalar(B) && isnumeric(B)
+        res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.EqualToScalar, B);
+      else
+        matlabcoder.Util.throwException('MatrixView:plus:IllegalArgument', 'Illegal argument.');
       end
+    end
     
-      function res = max(this)
-        %coder.inline('never');
-        %res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.Max);
-        res = 1;
+    function res = and(this, B)
+      coder.inline('never');
+      if matlabcoder.MatrixView.isMatrixView(B)
+        res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.LogicalAnd, B);
+      else
+        matlabcoder.Util.throwException('MatrixView:plus:IllegalArgument', 'Illegal argument.');
       end
-
-
-    %E
-
-      function res = cos(this)
-        coder.inline('never');
-        res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.Cos);
+    end
+    
+    function res = or(this, B)
+      ocder.inline('never');
+      if matlabcoder.MatrixView.isMatrixView(B)
+        res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.LogicalOr, B);
+      else
+        matlabcoder.Util.throwException('MatrixView:plus:IllegalArgument', 'Illegal argument.');
       end
-
-      function res = log(this)
-        coder.inline('never');
-        res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.Log);
+    end
+    
+    function res = uplus(this)
+      coder.inline('never');
+      res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.UnaryPlus);
+    end
+    
+    function res = uminus(this)
+      coder.inline('never');
+      res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.UnaryMinus);
+    end
+    
+    function res = not(this)
+      coder.inline('never');
+      res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.LogicalNot);
+    end
+    
+    function res = ctranspose(this)
+      coder.inline('never');
+      res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.CTranspose);
+    end
+    
+    function res = transpose(this)
+      coder.inline('never');
+      res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.Transpose);
+    end
+    
+    function res = min(this)
+      coder.inline('never');
+      res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.Min);
+    end
+    
+    function res = max(this)
+      coder.inline('never');
+      res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.Max);
+    end
+    
+    function res = cos(this)
+      coder.inline('never');
+      res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.Cos);
+    end
+    
+    function res = log(this)
+      coder.inline('never');
+      res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.Log);
+    end
+    
+    function res = sin(this)
+      coder.inline('never');
+      res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.Sin);
+    end
+    
+    function res = sqrt(this)
+      coder.inline('never');
+      if isreal(this)
+        res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.SqrtR);
+      else
+        res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.SqrtC);
       end
-
-      function res = sin(this)
-        coder.inline('never');
-        res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.Sin);
+    end
+    
+    function res = abs(this)
+      coder.inline('never');
+      if ~isreal(this)
+        res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.Abs);
+      else
+        matlabcoder.Util.throwException('MatrixView:plus:IllegalArgument', 'Illegal argument.');
       end
-
-      function res = sqrt(this)
-        coder.inline('never');
-        if isreal(this)
-          res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.SqrtR);
+    end
+    
+    function res = mean(this)
+      coder.inline('never');
+      if isreal(this)
+        res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.MMean);
+      else
+        res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.CMMean);
+      end
+    end
+    
+    function res = conj(this)
+      coder.inline('never');
+      res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.Conj);
+    end
+    
+    function res = cumsum(this,B)
+      coder.inline('never');
+      if isreal(this)
+        if nargin==1||B==1
+          res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.MCumsum,1);
+        elseif B == 2
+          res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.MCumsum,B);
         else
-          res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.SqrtC);
+          matlabcoder.Util.throwException('MatrixView:plus:IllegalArgument', 'Illegal argument.');
         end
-      end
-
-      function res = abs(this)
-        coder.inline('never');
-        if ~isreal(this)
-          res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.Abs);
+        
+      else
+        if nargin==1 || B==1
+          res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.CMCumsum,1);
+        elseif B == 2
+          res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.CMCumsum,B);
         else
           matlabcoder.Util.throwException('MatrixView:plus:IllegalArgument', 'Illegal argument.');
         end
       end
-
-      function res = mean(this)
-        coder.inline('never');
-        if isreal(this)
-          res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.MMean);
-        else
-          res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.CMMean);
-        end
-      end
-
-      function res = conj(this)
-        coder.inline('never');
-        res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.Conj);
-      end
-
-      function res = cumsum(this,B) 
-        coder.inline('never');
-        if isreal(this)
-          if nargin==1||B==1
-            res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.MCumsum,1);
-          elseif B == 2
-            res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.MCumsum,B);
-          else
-          matlabcoder.Util.throwException('MatrixView:plus:IllegalArgument', 'Illegal argument.');
-          end
-
-        else
-          if nargin==1 || B==1
-            res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.CMCumsum,1);
-          elseif B == 2
-            res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.CMCumsum,B);
-          else
-          matlabcoder.Util.throwException('MatrixView:plus:IllegalArgument', 'Illegal argument.');
-          end
-        end
-      end
-
-      %functions with special args in matlab functions map to vispl functions
-      function res = exp10(this)
-        coder.inline('never');
-        res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.Exp10);
-      end 
-
-      function res = sq2(this)
-        coder.inline('never');
-        res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.Sq2);
-      end
-
-      function res = sumval(this)
-        coder.inline('never');
-        res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.Sumval);
-      end
+    end
     
-    %endregion Operators 
+    %functions with special args in matlab functions map to vispl functions
+    function res = exp10(this)
+      coder.inline('never');
+      res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.Exp10);
+    end
+    
+    function res = sq2(this)
+      coder.inline('never');
+      res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.Sq2);
+    end
+    
+    function res = sumval(this)
+      coder.inline('never');
+      res = matlabcoder.OperationValue.of(this, matlabcoder.MatrixOperationEnum.Sumval);
+    end
+    
+    %endregion Operators
     
   end
   

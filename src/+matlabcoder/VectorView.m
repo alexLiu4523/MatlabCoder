@@ -36,37 +36,7 @@ classdef VectorView < matlabcoder.ViewBase
     
     function res = eqImpl(this, other)
       res = matlabcoder.VectorView.isVectorView(other) && ...
-         this.dataHandle.eqImpl(other.dataHandle) && this.indexes{1} == other.indexes{1};
-    end
-    
-    % this = other => this.assignImpl(other)
-    function res = assignImpl(this, other)
-      if matlabcoder.MatrixOperationValue.isMatrixOperationValue(other)
-        switch(other.opertation)
-          case matlabcoder.MatrixOpertationEnum.PlusScalar
-            
-          case matlabcoder.MatrixOpertationEnum.PlusMatrix
-            view = this.viewData();
-            view.assignImpl(other.operandA + other.operandB);
-            res = view;
-            
-          otherwise
-            matlabcoder.Util.throwException('MatrixView:assignImpl:IllegalArgument', 'Illegal argument.');
-        end
-        
-      elseif matlabcoder.MatrixView.isMatrixView(other)
-        
-      elseif matlabcoder.MatrixHandle.isMartixHandle(other)
-        
-      elseif numel(other) > 1
-        xIndex = this.indexes{1};
-        yIndex = this.indexes{2};
-        this.matrixHandle.data(xIndex.toVector, yIndex.toVector) = other;
-        
-      else
-        matlabcoder.Util.throwException('MatrixView:assign:IllegalArgument', 'Illegal argument.');
-      end
-      
+        this.dataHandle.eqImpl(other.dataHandle) && this.indexes{1} == other.indexes{1};
     end
     
     % this = this op operand => this.operateSelfImpl(op, operand)
@@ -84,176 +54,175 @@ classdef VectorView < matlabcoder.ViewBase
       end
     end
     
-    
     % this = other => this.assignImpl(other)
     function res = assignImpl(this, other)
       if matlabcoder.OperationValue.isOperationValue(other)
-        switch(other.operation)            
+        switch(other.operation)
           case matlabcoder.VectorOperationEnum.PlusVector
             if matlabcoder.VectorView.isVectorView(other.operandA)&&matlabcoder.VectorView.isVectorView(other.operandB)
               % this(view) = other.operandA(view) + other.operandB(view)
               visplstub.Stub_Vsip_VAdd(other.operandA,other.operandB,this);
-            
-            else 
+              
+            else
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.VectorOperationEnum.PlusScalar
             if matlabcoder.VectorView.isVectorView(other.operandA)&&matlabcoder.Util.isNumericScalar(other.operandB)
               % this(view) = other.operandA(view) + other.operandB(Scalar)
-              visplstub.Stub_Vsip_SVAdd(other.operandA,other.operandB,this); 
-            
-            else 
+              visplstub.Stub_Vsip_SVAdd(other.operandA,other.operandB,this);
+              
+            else
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
-            end 
-
+            end
+            
           case matlabcoder.VectorOperationEnum.CPlusVector
             if matlabcoder.VectorView.isVectorView(other.operandA)&&matlabcoder.VectorView.isVectorView(other.operandB)
               % this(view) = other.operandA(view) + other.operandB(view)
               visplstub.Stub_Vsip_CVAdd(other.operandA,other.operandB,this);
-            
-            else 
+              
+            else
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.VectorOperationEnum.CPlusScalar
             if matlabcoder.VectorView.isVectorView(other.operandA)&&matlabcoder.Util.isNumericScalar(other.operandB)
               % this(view) = other.operandA(view) + other.operandB(Scalar)
-              visplstub.Stub_Vsip_CSVAdd(other.operandA,other.operandB,this); 
-            
-            else 
+              visplstub.Stub_Vsip_CSVAdd(other.operandA,other.operandB,this);
+              
+            else
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.VectorOperationEnum.CPlusRScalar
             if matlabcoder.VectorView.isVectorView(other.operandA)&&matlabcoder.Util.isNumericScalar(other.operandB)
               % this(view) = other.operandA(view) + other.operandB(Scalar)
-              visplstub.Stub_Vsip_RSCVAdd(other.operandA,other.operandB,this); 
-            
-            else 
+              visplstub.Stub_Vsip_RSCVAdd(other.operandA,other.operandB,this);
+              
+            else
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.VectorOperationEnum.TimesVector
             if matlabcoder.VectorView.isVectorView(other.operandA)&&matlabcoder.VectorView.isVectorView(other.operandB)
               % this(view) = other.operandA(view) .* other.operandB(view)
               visplstub.Stub_Vsip_VMul(other.operandA,other.operandB,this);
-            
-            else 
+              
+            else
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.VectorOperationEnum.CTimesVector
             if matlabcoder.VectorView.isVectorView(other.operandA)&&matlabcoder.VectorView.isVectorView(other.operandB)
               % this(view) = other.operandA(view) .* other.operandB(view)
               visplstub.Stub_Vsip_CVMul(other.operandA,other.operandB,this);
-            
-            else 
+              
+            else
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.VectorOperationEnum.TimesCVector
             if matlabcoder.VectorView.isVectorView(other.operandA)&&matlabcoder.VectorView.isVectorView(other.operandB)
               % this(view) = other.operandA(view) .* other.operandB(view)
               visplstub.Stub_Vsip_RCVMul(other.operandA,other.operandB,this);
-            
-            else 
+              
+            else
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.VectorOperationEnum.TimesScalar
             if matlabcoder.VectorView.isVectorView(other.operandA)&&matlabcoder.Util.isNumericScalar(other.operandB)
               % this(view) = other.operandA(view) .* other.operandB(Scalar)
-              visplstub.Stub_Vsip_SVMul(other.operandA,other.operandB,this); 
-            
-            else 
+              visplstub.Stub_Vsip_SVMul(other.operandA,other.operandB,this);
+              
+            else
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.VectorOperationEnum.CTimesScalar
             if matlabcoder.VectorView.isVectorView(other.operandA)&&matlabcoder.Util.isNumericScalar(other.operandB)
               % this(view) = other.operandA(view) .* other.operandB(Scalar)
-              visplstub.Stub_Vsip_CSVMul(other.operandA,other.operandB,this); 
-            
-            else 
+              visplstub.Stub_Vsip_CSVMul(other.operandA,other.operandB,this);
+              
+            else
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
-            end          
-
-
-
-
+            end
+            
+            
+            
+            
           case matlabcoder.VectorOperationEnum.MinusVector
             if matlabcoder.VectorView.isVectorView(other.operandA)&&matlabcoder.VectorView.isVectorView(other.operandB)
               % this(view) = other.operandA(view) - other.operandB(view)
               visplstub.Stub_Vsip_VSub(other.operandA,other.operandB,this);
-            
-            else 
+              
+            else
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.VectorOperationEnum.MinusCVector
             if matlabcoder.VectorView.isVectorView(other.operandA)&&matlabcoder.VectorView.isVectorView(other.operandB)
               % this(view) = other.operandA(view) - other.operandB(view)
               visplstub.Stub_Vsip_RCVSub(other.operandA,other.operandB,this);
-            
-            else 
+              
+            else
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.VectorOperationEnum.CMinusRVector
             if matlabcoder.VectorView.isVectorView(other.operandA)&&matlabcoder.VectorView.isVectorView(other.operandB)
               % this(view) = other.operandA(view) - other.operandB(view)
               visplstub.Stub_Vsip_CRVSub(other.operandA,other.operandB,this);
-            
-            else 
+              
+            else
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.VectorOperationEnum.CMinusVector
             if matlabcoder.VectorView.isVectorView(other.operandA)&&matlabcoder.VectorView.isVectorView(other.operandB)
               % this(view) = other.operandA(view) - other.operandB(view)
               visplstub.Stub_Vsip_CVSub(other.operandA,other.operandB,this);
-            
-            else 
+              
+            else
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.VectorOperationEnum.RightDivideVector
             if matlabcoder.VectorView.isVectorView(other.operandA)&&matlabcoder.VectorView.isVectorView(other.operandB)
               % this(view) = other.operandA(view) ./ other.operandB(view)
               visplstub.Stub_Vsip_VRDiv(other.operandA,other.operandB,this);
-            
-            else 
+              
+            else
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.VectorOperationEnum.RightDivideScalar
             if matlabcoder.VectorView.isVectorView(other.operandA)&&matlabcoder.Util.isNumericScalar(other.operandB)
               % this(view) = other.operandA(view) ./ other.operandB(Scalar)
-              visplstub.Stub_Vsip_VSRDiv(other.operandA,other.operandB,this); 
-            
-            else 
+              visplstub.Stub_Vsip_VSRDiv(other.operandA,other.operandB,this);
+              
+            else
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.VectorOperationEnum.CRightDivideVector
             if matlabcoder.VectorView.isVectorView(other.operandA)&&matlabcoder.VectorView.isVectorView(other.operandB)
               % this(view) = other.operandA(view) ./ other.operandB(view)
               visplstub.Stub_Vsip_CVRDiv(other.operandA,other.operandB,this);
-            
-            else 
+              
+            else
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.VectorOperationEnum.CRightDivideRVector
             if matlabcoder.VectorView.isVectorView(other.operandA)&&matlabcoder.VectorView.isVectorView(other.operandB)
               % this(view) = other.operandA(view) ./ other.operandB(view)
               visplstub.Stub_Vsip_CRVRDiv(other.operandA,other.operandB,this);
-            
-            else 
+              
+            else
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-          
+            
           case matlabcoder.VectorOperationEnum.LessThanVector
             if matlabcoder.VectorView.isVectorView(other.operandA) && matlabcoder.VectorView.isVectorView(other.operandB)
               % this(view) = other.operandA(view) < other.operandB(view)
@@ -261,7 +230,7 @@ classdef VectorView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.VectorOperationEnum.LessThanScalar
             if matlabcoder.VectorView.isVectorView(other.operandA) && matlabcoder.Util.isNumericScalar(other.operandB)
               % this(view) = other.operandA(view) < other.operandB(scalar) aka other.operandB(scalar) > other.operandA(view)
@@ -269,7 +238,7 @@ classdef VectorView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.VectorOperationEnum.GreaterThanVector
             if matlabcoder.VectorView.isVectorView(other.operandA) && matlabcoder.VectorView.isVectorView(other.operandB)
               % this(view) = other.operandA(view) > other.operandB(view)
@@ -277,7 +246,7 @@ classdef VectorView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.VectorOperationEnum.GreaterThanScalar
             if matlabcoder.VectorView.isVectorView(other.operandA) && matlabcoder.Util.isNumericScalar(other.operandB)
               % this(view) = other.operandA(view) > other.operandB(scalar) aka other.operandB(scalar) < other.operandA(view)
@@ -285,7 +254,7 @@ classdef VectorView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.VectorOperationEnum.LessEqualVector
             if matlabcoder.VectorView.isVectorView(other.operandA) && matlabcoder.VectorView.isVectorView(other.operandB)
               % this(view) = other.operandA(view) <= other.operandB(view)
@@ -293,7 +262,7 @@ classdef VectorView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.VectorOperationEnum.LessEqualScalar
             if matlabcoder.VectorView.isVectorView(other.operandA) && matlabcoder.Util.isNumericScalar(other.operandB)
               % this(view) = other.operandA(view) <= other.operandB(scalar) aka other.operandB(scalar) >= other.operandA(view)
@@ -301,7 +270,7 @@ classdef VectorView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.VectorOperationEnum.GreaterEqualVector
             if matlabcoder.VectorView.isVectorView(other.operandA) && matlabcoder.VectorView.isVectorView(other.operandB)
               % this(view) = other.operandA(view) >= other.operandB(view)
@@ -309,7 +278,7 @@ classdef VectorView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.VectorOperationEnum.GreaterEqualScalar
             if matlabcoder.VectorView.isVectorView(other.operandA) && matlabcoder.Util.isNumericScalar(other.operandB)
               % this(view) = other.operandA(view) >= other.operandB(scalar) aka other.operandB(scalar) <= other.operandA(view)
@@ -317,7 +286,7 @@ classdef VectorView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.VectorOperationEnum.NotEqualVector
             if matlabcoder.VectorView.isVectorView(other.operandA) && matlabcoder.VectorView.isVectorView(other.operandB)
               % this(view) = other.operandA(view) ~= other.operandB(view)
@@ -325,7 +294,7 @@ classdef VectorView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.VectorOperationEnum.NotEqualScalar
             if matlabcoder.VectorView.isVectorView(other.operandA) && matlabcoder.Util.isNumericScalar(other.operandB)
               % this(view) = other.operandA(view) ~= other.operandB(scalar)
@@ -333,7 +302,7 @@ classdef VectorView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.VectorOperationEnum.EqualToVector
             if matlabcoder.VectorView.isVectorView(other.operandA) && matlabcoder.VectorView.isVectorView(other.operandB)
               % this(view) = other.operandA(view) == other.operandB(view)
@@ -341,7 +310,7 @@ classdef VectorView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.VectorOperationEnum.CEqualToVector
             if matlabcoder.VectorView.isVectorView(other.operandA) && matlabcoder.VectorView.isVectorView(other.operandB)
               % this(view) = other.operandA(view) == other.operandB(view)
@@ -349,7 +318,7 @@ classdef VectorView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.VectorOperationEnum.EqualToScalar
             if matlabcoder.VectorView.isVectorView(other.operandA) && matlabcoder.Util.isNumericScalar(other.operandB)
               % this(view) = other.operandA(view) == other.operandB(scalar)
@@ -357,7 +326,7 @@ classdef VectorView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.VectorOperationEnum.CEqualToScalar
             if matlabcoder.VectorView.isVectorView(other.operandA) && matlabcoder.Util.isNumericScalar(other.operandB)
               % this(view) = other.operandA(view) == other.operandB(scalar)
@@ -365,7 +334,7 @@ classdef VectorView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.VectorOperationEnum.LogicalAnd
             if matlabcoder.VectorView.isVectorView(other.operandA) && matlabcoder.VectorView.isVectorView(other.operandB)
               % this(view) = other.operandA(view) & other.operandB(view)
@@ -373,7 +342,7 @@ classdef VectorView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.VectorOperationEnum.LogicalOr
             if matlabcoder.VectorView.isVectorView(other.operandA) && matlabcoder.VectorView.isVectorView(other.operandB)
               % this(view) = other.operandA(view) | other.operandB(view)
@@ -381,7 +350,7 @@ classdef VectorView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.VectorOperationEnum.UnaryPlus
             if matlabcoder.VectorView.isVectorView(other.operandA)
               % this(view) = +other.operandA(view)
@@ -389,7 +358,7 @@ classdef VectorView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.VectorOperationEnum.LogicalNot
             if matlabcoder.VectorView.isVectorView(other.operandA)
               % this(view) = ~other.operandA(view)
@@ -397,7 +366,7 @@ classdef VectorView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.VectorOperationEnum.UnaryMinus
             if matlabcoder.VectorView.isVectorView(other.operandA)
               % this(view) = -other.operandA(view)
@@ -405,7 +374,7 @@ classdef VectorView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.VectorOperationEnum.CTranspose
             if matlabcoder.VectorView.isVectorView(other.operandA)
               % this(view) = -other.operandA(view)
@@ -413,7 +382,7 @@ classdef VectorView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.VectorOperationEnum.Transpose
             if matlabcoder.VectorView.isVectorView(other.operandA)
               % this(view) = -other.operandA(view)
@@ -421,7 +390,7 @@ classdef VectorView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.VectorOperationEnum.Cos
             if matlabcoder.VectorView.isVectorView(other.operandA)
               % this(view) = cos(other.operandA)(view)
@@ -429,7 +398,7 @@ classdef VectorView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.VectorOperationEnum.ExpR
             if matlabcoder.VectorView.isVectorView(other.operandA)
               % this(view) = exp(other.operandA)(view)
@@ -437,7 +406,7 @@ classdef VectorView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.VectorOperationEnum.ExpC
             if matlabcoder.VectorView.isVectorView(other.operandA)
               % this(view) = exp(other.operandA)(view)
@@ -445,7 +414,7 @@ classdef VectorView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.VectorOperationEnum.Exp10
             if matlabcoder.VectorView.isVectorView(other.operandA)
               % this(view) = 10^(other.operandA)(view)
@@ -453,7 +422,7 @@ classdef VectorView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.VectorOperationEnum.Log
             if matlabcoder.VectorView.isVectorView(other.operandA)
               % this(view) = log(other.operandA)(view)
@@ -461,7 +430,7 @@ classdef VectorView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.VectorOperationEnum.Sin
             if matlabcoder.VectorView.isVectorView(other.operandA)
               % this(view) = sin(other.operandA)(view)
@@ -469,7 +438,7 @@ classdef VectorView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.VectorOperationEnum.SqrtR
             if matlabcoder.VectorView.isVectorView(other.operandA)
               % this(view) = sqrt(other.operandA)(view)
@@ -477,7 +446,7 @@ classdef VectorView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.VectorOperationEnum.SqrtC
             if matlabcoder.VectorView.isVectorView(other.operandA)
               % this(view) = sqrt(other.operandA)(view)
@@ -485,7 +454,7 @@ classdef VectorView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.VectorOperationEnum.Conj
             if matlabcoder.VectorView.isVectorView(other.operandA)
               % this(view) = conj(other.operandA)(view)
@@ -493,7 +462,7 @@ classdef VectorView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.VectorOperationEnum.CumsumR
             if matlabcoder.VectorView.isVectorView(other.operandA)
               % this(view) = cumsum(other.operandA)(view)
@@ -501,7 +470,7 @@ classdef VectorView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.VectorOperationEnum.CumsumC
             if matlabcoder.VectorView.isVectorView(other.operandA)
               % this(view) = cumsum(other.operandA)(view)
@@ -509,7 +478,7 @@ classdef VectorView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.VectorOperationEnum.AbsR
             if matlabcoder.VectorView.isVectorView(other.operandA)
               % this(view) = abs(other.operandA)(view)
@@ -517,7 +486,7 @@ classdef VectorView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.VectorOperationEnum.AbsC
             if matlabcoder.VectorView.isVectorView(other.operandA)
               % this(view) = abs(other.operandA)(view)
@@ -525,7 +494,7 @@ classdef VectorView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.VectorOperationEnum.MeanR
             if matlabcoder.VectorView.isVectorView(other.operandA)
               % this(view) = mean(other.operandA)(view)
@@ -533,7 +502,7 @@ classdef VectorView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.VectorOperationEnum.MeanC
             if matlabcoder.VectorView.isVectorView(other.operandA)
               % this(view) = mean(other.operandA)(view)
@@ -541,7 +510,7 @@ classdef VectorView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.VectorOperationEnum.Sq2
             if matlabcoder.VectorView.isVectorView(other.operandA)
               % this(view) = (other.operandA).^2 (view)
@@ -549,7 +518,7 @@ classdef VectorView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.VectorOperationEnum.Imag
             if matlabcoder.VectorView.isVectorView(other.operandA)
               % this(view) = imag(other.operandA) (view)
@@ -557,7 +526,7 @@ classdef VectorView < matlabcoder.ViewBase
             else
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
-
+            
           case matlabcoder.VectorOperationEnum.Real
             if matlabcoder.VectorView.isVectorView(other.operandA)
               % this(view) = real(other.operandA) (view)
@@ -566,10 +535,8 @@ classdef VectorView < matlabcoder.ViewBase
               matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
             end
 
-
           otherwise
-            matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
-          
+            matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');  
         end
         
       elseif matlabcoder.VectorView.isVectorView(other)
@@ -589,26 +556,6 @@ classdef VectorView < matlabcoder.ViewBase
       res = this;
     end
     
-    % this = this op operand => this.operateSelfImpl(op, operand)
-    function res = operateSelfImpl(this, operation, operand)
-      switch(operation)
-        case matlabcoder.VectorOpertationEnum.PlusScalar
-          
-        case matlabcoder.VectorOpertationEnum.PlusVector
-          view = this.viewData();
-          view.assignImpl(view + operand);
-          res = view;
-          
-        otherwise
-          matlabcoder.Util.throwException('VectorView:assignImpl:IllegalArgument', 'Illegal argument.');
-      end
-    end
-    
-    %     function res = plusVectorAssignSelf(this, operand)
-    %       this = this + operand;
-    %       res = this;
-    %     end
-    
     % https://www.mathworks.com/help/matlab/ref/plus.html
     function res = plus(this, B)
       coder.inline('never');
@@ -623,9 +570,9 @@ classdef VectorView < matlabcoder.ViewBase
       elseif ~isreal(this)
         if matlabcoder.VectorView.isVectorView(B)&&~isreal(B)
           res = matlabcoder.OperationValue.of(this,matlabcoder.VectorOperationEnum.CPlusVector,B);
-        elseif matlabcoder.Util.isNumericScalar(B)&&~isreal(B) 
+        elseif matlabcoder.Util.isNumericScalar(B)&&~isreal(B)
           res = matlabcoder.OperationValue.of(this,matlabcoder.VectorOperationEnum.CPlusScalar,B);
-        elseif matlabcoder.Util.isNumericScalar(B)&&~isreal(B) 
+        elseif matlabcoder.Util.isNumericScalar(B)&&~isreal(B)
           res = matlabcoder.OperationValue.of(this,matlabcoder.VectorOperationEnum.CPlusRScalar,B);
         else
           matlabcoder.Util.throwException('VectorView:plus:IllegalArgument', 'Illegal argument.');
@@ -634,7 +581,7 @@ classdef VectorView < matlabcoder.ViewBase
         matlabcoder.Util.throwException('VectorView:plus:IllegalArgument', 'Illegal argument.');
       end
     end
-
+    
     function res = times(this, B)
       coder.inline('never');
       if isreal(this)
@@ -657,7 +604,7 @@ classdef VectorView < matlabcoder.ViewBase
         end
       end
     end
-
+    
     function res = mtimes(this,B)
       coder.inline('never');
       if isreal(this)&&isreal(B)
@@ -668,7 +615,7 @@ classdef VectorView < matlabcoder.ViewBase
         matlabcoder.Util.throwException('VectorView:plus:IllegalArgument', 'Illegal argument.');
       end
     end
-
+    
     function res = minus(this, B)
       coder.inline('never');
       if isreal(this)
@@ -689,7 +636,7 @@ classdef VectorView < matlabcoder.ViewBase
         end
       end
     end
-
+    
     function res = rdivide(this, B)
       coder.inline('never');
       if isreal(this)&&isreal(B)
@@ -712,7 +659,7 @@ classdef VectorView < matlabcoder.ViewBase
         matlabcoder.Util.throwException('VectorView:plus:IllegalArgument', 'Illegal argument.');
       end
     end
-
+    
     function res = ldivide(this, B)
       coder.inline('never');
       if matlabcoder.Util.isNumericScalar(B) % isscalar(B) && isnumeric(B)
@@ -723,7 +670,7 @@ classdef VectorView < matlabcoder.ViewBase
         matlabcoder.Util.throwException('VectorView:plus:IllegalArgument', 'Illegal argument.');
       end
     end
-
+    
     function res = lt(this, B)
       coder.inline('never');
       if matlabcoder.VectorView.isVectorView(B)
@@ -734,7 +681,7 @@ classdef VectorView < matlabcoder.ViewBase
         matlabcoder.Util.throwException('VectorView:plus:IllegalArgument', 'Illegal argument.');
       end
     end
-
+    
     function res = gt(this, B)
       coder.inline('never');
       if matlabcoder.VectorView.isVectorView(B)
@@ -745,7 +692,7 @@ classdef VectorView < matlabcoder.ViewBase
         matlabcoder.Util.throwException('VectorView:plus:IllegalArgument', 'Illegal argument.');
       end
     end
-
+    
     function res = le(this, B)
       coder.inline('never');
       if matlabcoder.VectorView.isVectorView(B)
@@ -756,7 +703,7 @@ classdef VectorView < matlabcoder.ViewBase
         matlabcoder.Util.throwException('VectorView:plus:IllegalArgument', 'Illegal argument.');
       end
     end
-
+    
     function res = ge(this, B)
       coder.inline('never');
       if matlabcoder.VectorView.isVectorView(B)
@@ -767,18 +714,18 @@ classdef VectorView < matlabcoder.ViewBase
         matlabcoder.Util.throwException('VectorView:plus:IllegalArgument', 'Illegal argument.');
       end
     end
-
+    
     function res = ne(this, B)
-        coder.inline('never');
-        if matlabcoder.VectorView.isVectorView(B)
-          res = matlabcoder.OperationValue.of(this, matlabcoder.VectorOperationEnum.NotEqualVector, B);
-        elseif matlabcoder.Util.isNumericScalar(B) % isscalar(B) && isnumeric(B)
-          res = matlabcoder.OperationValue.of(this, matlabcoder.VectorOperationEnum.NotEqualScalar, B);
-        else
-          matlabcoder.Util.throwException('VectorView:plus:IllegalArgument', 'Illegal argument.');
-        end
+      coder.inline('never');
+      if matlabcoder.VectorView.isVectorView(B)
+        res = matlabcoder.OperationValue.of(this, matlabcoder.VectorOperationEnum.NotEqualVector, B);
+      elseif matlabcoder.Util.isNumericScalar(B) % isscalar(B) && isnumeric(B)
+        res = matlabcoder.OperationValue.of(this, matlabcoder.VectorOperationEnum.NotEqualScalar, B);
+      else
+        matlabcoder.Util.throwException('VectorView:plus:IllegalArgument', 'Illegal argument.');
       end
-
+    end
+    
     function res = eq(this, B)
       coder.inline('never');
       if isreal(this)&&isreal(B)
@@ -801,120 +748,125 @@ classdef VectorView < matlabcoder.ViewBase
         matlabcoder.Util.throwException('VectorView:plus:IllegalArgument', 'Illegal argument.');
       end
     end
-      
-      function res = and(this, B)
-        coder.inline('never');
-        if matlabcoder.VectorView.isVectorView(B)
+    
+    function res = and(this, B)
+      coder.inline('never');
+      if matlabcoder.VectorView.isVectorView(B)
         res = matlabcoder.OperationValue.of(this, matlabcoder.VectorOperationEnum.LogicalAnd, B);
-        else
-          matlabcoder.Util.throwException('VectorView:plus:IllegalArgument', 'Illegal argument.');
-        end
+      else
+        matlabcoder.Util.throwException('VectorView:plus:IllegalArgument', 'Illegal argument.');
       end
-
-      function res = or(this, B)
-        coder.inline('never');
-        if matlabcoder.VectorView.isVectorView(B)
-          res = matlabcoder.OperationValue.of(this, matlabcoder.VectorOperationEnum.LogicalOr, B);
-        else
-          matlabcoder.Util.throwException('VectorView:plus:IllegalArgument', 'Illegal argument.');
-        end
+    end
+    
+    function res = or(this, B)
+      coder.inline('never');
+      if matlabcoder.VectorView.isVectorView(B)
+        res = matlabcoder.OperationValue.of(this, matlabcoder.VectorOperationEnum.LogicalOr, B);
+      else
+        matlabcoder.Util.throwException('VectorView:plus:IllegalArgument', 'Illegal argument.');
       end
-
-      function res = uplus(this)
-        coder.inline('never');
-          res = matlabcoder.OperationValue.of(this, matlabcoder.VectorOperationEnum.UnaryPlus);
-      end
-
-      function res = uminus(this)
-        coder.inline('never');
-          res = matlabcoder.OperationValue.of(this, matlabcoder.VectorOperationEnum.UnaryMinus);
-      end
-
-      function res = not(this)
-        coder.inline('never');
-        res = matlabcoder.OperationValue.of(this, matlabcoder.VectorOperationEnum.LogicalNot);
-      end
-
-      function res = ctranspose(this)
-        coder.inline('never');
-        res = matlabcoder.OperationValue.of(this, matlabcoder.VectorOperationEnum.CTranspose);
-      end
-
-      function res = transpose(this)
-        coder.inline('never');
-        res = matlabcoder.OperationValue.of(this, matlabcoder.VectorOperationEnum.Transpose);
-      end
-
+    end
+    
+    function res = uplus(this)
+      coder.inline('never');
+      res = matlabcoder.OperationValue.of(this, matlabcoder.VectorOperationEnum.UnaryPlus);
+    end
+    
+    function res = uminus(this)
+      coder.inline('never');
+      res = matlabcoder.OperationValue.of(this, matlabcoder.VectorOperationEnum.UnaryMinus);
+    end
+    
+    function res = not(this)
+      coder.inline('never');
+      res = matlabcoder.OperationValue.of(this, matlabcoder.VectorOperationEnum.LogicalNot);
+    end
+    
+    function res = ctranspose(this)
+      coder.inline('never');
+      res = matlabcoder.OperationValue.of(this, matlabcoder.VectorOperationEnum.CTranspose);
+    end
+    
+    function res = transpose(this)
+      coder.inline('never');
+      res = matlabcoder.OperationValue.of(this, matlabcoder.VectorOperationEnum.Transpose);
+    end
+    
     
     function res = cos(this)
       coder.inline('never');
       res = matlabcoder.OperationValue.of(this, matlabcoder.VectorOperationEnum.Cos);
     end
-
+    
     function res = exp(this)
       coder.inline('never');
       if isreal(this)
         res = matlabcoder.OperationValue.of(this, matlabcoder.VectorOperationEnum.ExpR);
       else
         res = matlabcoder.OperationValue.of(this, matlabcoder.VectorOperationEnum.ExpC);
+      end
     end
-
+    
     function res = log(this)
       oder.inline('never');
       res = matlabcoder.OperationValue.of(this, matlabcoder.VectorOperationEnum.Log);
     end
-
+    
     function res = sin(this)
       coder.inline('never');
       res = matlabcoder.OperationValue.of(this, matlabcoder.VectorOperationEnum.Sin);
     end
-
-    function sqrt(this)
+    
+    function res = sqrt(this)
       coder.inline('never');
       if isreal(this)
         res = matlabcoder.OperationValue.of(this, matlabcoder.VectorOperationEnum.SqrtR);
       else
         res = matlabcoder.OperationValue.of(this, matlabcoder.VectorOperationEnum.SqrtC);
+      end
     end
-
-    function conj(this)
+    
+    function res = conj(this)
       coder.inline('never');
       res = matlabcoder.OperationValue.of(this, matlabcoder.VectorOperationEnum.Conj);
     end
-
-    function cumsum(this)
+    
+    function res = cumsum(this)
       coder.inline('never');
       if isreal(this)
         res = matlabcoder.OperationValue.of(this, matlabcoder.VectorOperationEnum.CumsumR);
       else
         res = matlabcoder.OperationValue.of(this, matlabcoder.VectorOperationEnum.CumsumC);
+      end
     end
-
-    function abs(this)
+    
+    function res = abs(this)
       coder.inline('never');
       if isreal(this)
         res = matlabcoder.OperationValue.of(this, matlabcoder.VectorOperationEnum.AbsR);
       else
         res = matlabcoder.OperationValue.of(this, matlabcoder.VectorOperationEnum.AbsC);
-      wnd
+      end
     end
-
+    
     function res = mean(this)
       coder.inline('never');
       if isreal(this)
         res = matlabcoder.OperationValue.of(this, matlabcoder.VectorOperationEnum.MeanR);
       else
         res = matlabcoder.OperationValue.of(this, matlabcoder.VectorOperationEnum.MeanC);
+      end
     end
-
+    
     function res = sum(this)
       coder.inline('never');
       if isreal(this)
         res = matlabcoder.OperationValue.of(this, matlabcoder.VectorOperationEnum.SumR);
       else
         res = matlabcoder.OperationValue.of(this, matlabcoder.VectorOperationEnum.SumC);
+      end
     end
-
+    
     function res = imag(this)
       coder.inline('never');
       if ~isreal(this)
@@ -923,7 +875,7 @@ classdef VectorView < matlabcoder.ViewBase
         matlabcoder.Util.throwException('VectorView:plus:IllegalArgument', 'Illegal argument.');
       end
     end
-
+    
     function res = real(this)
       coder.inline('never');
       if ~isreal(this)
@@ -932,21 +884,16 @@ classdef VectorView < matlabcoder.ViewBase
         matlabcoder.Util.throwException('VectorView:plus:IllegalArgument', 'Illegal argument.');
       end
     end
-
-    function res = max(this)
-      coder.inline('never');
-      res = matlabcoder.OperationValue.of(this, matlabcoder.VectorOperationEnum.Max);
-    end
-
+    
     function res = max(this,B)
       coder.inline('never');
       if matlabcoder.VectorView.isVectorView(B)
-        res = matlabcoder.OperationValue.of(this, matlabcoder.VectorOperationEnum.Max2,B);
+        res = matlabcoder.OperationValue.of(this, matlabcoder.VectorOperationEnum.Max, B);
       else
         matlabcoder.Util.throwException('VectorView:plus:IllegalArgument', 'Illegal argument.');
       end
     end
-
+    
     function res = min(this)
       coder.inline('never');
       if nargin == 1
@@ -957,23 +904,19 @@ classdef VectorView < matlabcoder.ViewBase
         matlabcoder.Util.throwException('VectorView:plus:IllegalArgument', 'Illegal argument.');
       end
     end
-
-
-
-
-
-    %functions with special args map to vsipl functions 
+    
+    %functions with special args map to vsipl functions
     function res = exp10(this)
       coder.inline('never');
       res = matlabcoder.OperationValue.of(this, matlabcoder.VectorOperationEnum.Exp10);
-    end 
-
+    end
+    
     function res = sq2(this)
       coder.inline('never');
-      res = matlabcoder.OperationValue.of(this, matlabcoder.VectorOperationEnum.Sq2);     
+      res = matlabcoder.OperationValue.of(this, matlabcoder.VectorOperationEnum.Sq2);
     end
-
-    function maxabs(this)
+    
+    function res = maxabs(this)
       coder.inline('never');
       if isreal(this)
         res = matlabcoder.OperationValue.of(this,matlabcoder.VectorView.MaxAbsR);
@@ -981,15 +924,16 @@ classdef VectorView < matlabcoder.ViewBase
         res = matlabcoder.OperationValue.of(this,matlabcoder.VectorView.MaxAbsC);
       end
     end
-
-    function minabs(this)
+    
+    function res = minabs(this)
       coder.inline('never');
       if isreal(this)
         res = matlabcoder.OperationValue.of(this,matlabcoder.VectorView.MinAbsR);
       else
         res = matlabcoder.OperationValue.of(this,matlabcoder.VectorView.MinAbsC);
+      end
     end
- 
+    
   end
   
   methods(Static)

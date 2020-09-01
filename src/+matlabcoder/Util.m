@@ -36,6 +36,14 @@ classdef Util
       res = matlabstub.Stub_Util_throwException(idetifier, varargin{:});
     end
     
+    function res = isRealScalar(obj)
+      res = matlabcoder.Util.isNumericScalar(obj)&&isreal(obj);
+    end
+
+    function res = isComplexScalar(obj)
+      res = matlabcoder.Util.isNumericScalar(obj)&&~isreal(obj);
+    end
+    
   end
   
 end

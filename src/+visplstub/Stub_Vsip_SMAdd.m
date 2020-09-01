@@ -6,7 +6,7 @@ function Stub_Vsip_SMAdd(operandA, operandB, this)
 
   coder.inline('never');
   thisIndexes = this.matlabIndexes();
-  this.dataHandle.data(thisIndexes{:}) = operandA.viewData() + operandB;
+  this.dataHandle.data(thisIndexes{:}) = operandA + operandB.viewData();
 
 end
 

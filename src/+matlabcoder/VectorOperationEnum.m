@@ -6,48 +6,71 @@ classdef VectorOperationEnum < uint8
     PlusScalar(1),PlusVector(2),
     CPlusScalar(3),CPlusVector(4),
     CPlusRScalar(5),
-    MinusScalar(6), MinusVector(7),
-    UnaryMinus(8),
-    UnaryPlus(9),
+
+    MinusVector(6),
+    MinusCVector(7),
+    CMinusRVector(8),
+    CMinusVector(9),
+    ScalarMinusVector(10),
+    ScalarMinusCVector(11),
+    CScalarMinusVector(12),
+
+    UnaryMinus(13),
+    UnaryPlus(14),
     
-    RightDivideScalar(10), %a./b,rdivide(a,b), Element-wise Right array division
-    RightDivideVector(11),
-    CRightDivideVector(12),
-    CRightDivideRVector(13),
-    LeftDivideScalar(14), %a.\b,ldivide(a,b), Element-wise Left array division
-    LeftDivideVector(15),
+    RightDivideScalar(15), %a./b,rdivide(a,b), Element-wise Right array division
+    RightDivideVector(16),
+    CRightDivideVector(17),
+    CRightDivideRVector(18),
+    ScalarRightDivideVector(19),
 
-    TimesVector(16),
-    TimesCVector(17),
-    TimesScalar(18),
-    CTimesVector(19),
-    CTimesScalar(20),
+    LeftDivideScalar(20), %a.\b,ldivide(a,b), Element-wise Left array division
+    LeftDivideVector(21),
 
-    LessThanVector(21),
-    LessThanScalar(22),
+    TimesVector(22),
+    CTimesVector(23),
+    TimesCVector(24),
+    ScalarTimesVector(25),
+    CScalarTimesVector(26),
+    RScalarTimesCVector(27),
 
-    GreaterThanVector(23),
-    GreaterThanScalar(24),
+    LessThanVector(28),
+    LessThanScalar(29),
 
-    LessEqualVector(25),
-    LessEqualScalar(26),
+    GreaterThanVector(30),
+    GreaterThanScalar(31),
 
-    GreaterEqualVector(27),
-    GreaterEqualScalar(28),
+    LessEqualVector(32),
+    LessEqualScalar(33),
 
-    NotEqualVector(29),
-    NotEqualScalar(30),
+    GreaterEqualVector(34),
+    GreaterEqualScalar(35),
 
-    EqualToVector(31),
-    EqualToScalar(32),
+    NotEqualVector(36),
+    NotEqualScalar(37),
 
-    LogicalAnd(33),
-    LogicalOr(34),
-    LogicalNot(35),
+    EqualToVector(38),
+    EqualToScalar(39),
 
-    CTranspose(36),
-    Transpose(37),
+    LogicalAnd(40),
+    LogicalOr(41),
+    LogicalNot(42),
 
+    CTranspose(43),
+    Transpose(44),
+    
+    CEqualToVector(45),
+    CEqualToScalar(46),
+
+    ScalarTimesCVector(47),
+    
+    Log(77),
+    ConjMul(78),
+    Euler(79),
+    MinAbsC(80),
+    MinAbsR(81),
+    MaxAbsC(82),
+    MaxAbsR(83),
     Sq2(84),
     Real(85),
     Imag(86),    
@@ -67,6 +90,7 @@ classdef VectorOperationEnum < uint8
     Cos(100),
     Min(101),
     Max(102)
+	
   end
-
+  
 end

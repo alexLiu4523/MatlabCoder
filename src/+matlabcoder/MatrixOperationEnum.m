@@ -14,33 +14,51 @@ classdef MatrixOperationEnum < uint8
     LeftDivideScalar(11), %a.\b,ldivide(a,b), Element-wise Left array division
     LeftDivideMatrix(12),
 
-    MatrixTimesVector(13),
-    MatrixTimesMatrix(14),
+    MatrixMTimesVector(13),
+    MatrixMTimesMatrix(14),
+    CMatrixMTimesMatrix(15),
 
-    LessThanMatrix(15),
-    LessThanScalar(16),
+    LessThanMatrix(16),
+    LessThanScalar(17),
 
-    GreaterThanMatrix(17),
-    GreaterThanScalar(18),
+    GreaterThanMatrix(18),
+    GreaterThanScalar(19),
 
-    LessEqualMatrix(19),
-    LessEqualScalar(20),
+    LessEqualMatrix(20),
+    LessEqualScalar(21),
 
-    GreaterEqualMatrix(21),
-    GreaterEqualScalar(22),
+    GreaterEqualMatrix(22),
+    GreaterEqualScalar(23),
 
-    NotEqualMatrix(23),
-    NotEqualScalar(24),
+    NotEqualMatrix(24),
+    NotEqualScalar(25),
 
-    EqualToMatrix(25),
-    EqualToScalar(26),
+    EqualToMatrix(26),
+    EqualToScalar(27),
 
-    LogicalAnd(27),
-    LogicalOr(28),
-    LogicalNot(29),
+    LogicalAnd(28),
+    LogicalOr(29),
+    LogicalNot(30),
 
-    CTranspose(30),
-    Transpose(31),
+    CTranspose(31),
+    Transpose(32),
+    CPlusMatrix(33),
+
+    MinusCMatrix(34),
+    CMinusRMatrix(35),
+    CMinusMatrix(36),
+
+    ScalarMinusMatrix(37),
+    ScalarMinusCMatrix(38),
+    CScalarMinusMatrix(39),
+
+    CEqualToMatrix(40),
+    CCTranspose(41),
+
+
+    Sin(84),
+    ConjMul(85),
+    Euler(86),
 
     CMMean(87)
     MMean(88),
@@ -52,15 +70,13 @@ classdef MatrixOperationEnum < uint8
     Conj(94),
     Exp10(95),
 
-    
     SqrtR(97),
     SqrtC(98),
     Log(99),
     Cos(100),
 
-    Min(101),
-    Max(102)
+    Min(110),
+    Max(111)
   end
   
 end
-

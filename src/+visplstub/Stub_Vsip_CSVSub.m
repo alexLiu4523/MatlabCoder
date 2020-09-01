@@ -1,7 +1,7 @@
-function Stub_Vsip_SVSub(operandA, operandB, this)
-%STUB_VSIP_SVSUB
+function Stub_Vsip_CSVSub(operandA, operandB, this)
+%STUB_VSIP_CSVSUB
 % call function:
-%   void (vsip_svsub_d)(vsip_scalar_d s, const vsip_vview_d* a, const vsip_vview_d* r);
+%   void (vsip_csvsub_d)(vsip_cscalar_d s, const vsip_cvview_d* a, const vsip_cvview_d* r);
 %   r = s - a;
 
   coder.inline('never');

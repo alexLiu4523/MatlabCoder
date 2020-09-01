@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.coder" plugin-version="R2018b">
-  <configuration build-checksum="3715071909" file="Y:\ProjsMatlab\MatalbCoder\src\sample\dpcCodeGen\dpc.prj" location="Y:\ProjsMatlab\MatalbCoder\src\sample\dpcCodeGen" name="dpc" target="target.unifiedcoder" target-name="MATLAB Coder">
+  <configuration build-checksum="3715071909" file="C:\ProjMatlab\MatalbCoder\src\sample\dpcCodeGen\dpc.prj" location="C:\ProjMatlab\MatalbCoder\src\sample\dpcCodeGen" name="dpc" target="target.unifiedcoder" target-name="MATLAB Coder">
     <profile key="profile.mex">
       <param.BuiltInstrumentedMex />
       <param.RanInstrumentedMex>false</param.RanInstrumentedMex>
@@ -16,10 +16,9 @@
       <param.EnableVariableSizing>true</param.EnableVariableSizing>
       <param.DynamicMemoryAllocation>option.DynamicMemoryAllocation.Threshold</param.DynamicMemoryAllocation>
       <param.DynamicMemoryAllocationThreshold>65536</param.DynamicMemoryAllocationThreshold>
-      <param.DynamicMemoryAllocationInterface>option.DynamicMemoryAllocationInterface.CPP</param.DynamicMemoryAllocationInterface>
       <param.RowMajor>option.RowMajor.ColumnMajor</param.RowMajor>
       <param.HighlightPotentialRowMajorIssues>true</param.HighlightPotentialRowMajorIssues>
-      <param.PreserveArrayDimensions>false</param.PreserveArrayDimensions>
+      <param.PreserveArrayDimensions />
       <param.EliminateSingleDimensions>false</param.EliminateSingleDimensions>
       <param.StackUsageMax>200000</param.StackUsageMax>
       <param.FilePartitionMethod>option.FilePartitionMethod.MapMFileToCFile</param.FilePartitionMethod>
@@ -27,7 +26,7 @@
       <param.MATLABSourceComments>true</param.MATLABSourceComments>
       <param.ReservedNameArray />
       <param.EnableDebugging />
-      <param.ReportPotentialDifferences>false</param.ReportPotentialDifferences>
+      <param.ReportPotentialDifferences />
       <param.GenerateReport>false</param.GenerateReport>
       <param.LaunchReport>false</param.LaunchReport>
       <param.ReportInfoVarName />
@@ -50,9 +49,6 @@
       <param.CompileTimeRecursionLimit>50</param.CompileTimeRecursionLimit>
       <param.EnableRuntimeRecursion>true</param.EnableRuntimeRecursion>
       <param.PreserveVariableNames>option.PreserveVariableNames.UserNames</param.PreserveVariableNames>
-      <param.InlineUserFunctions>option.InlineUserFunctions.Speed</param.InlineUserFunctions>
-      <param.InlineMWFunctions>option.InlineMWFunctions.Speed</param.InlineMWFunctions>
-      <param.InlineMWFunctionsInUserFunctions>option.InlineMWFunctionsInUserFunctions.Speed</param.InlineMWFunctionsInUserFunctions>
       <param.EchoExpressions />
       <param.InlineThreshold>10</param.InlineThreshold>
       <param.InlineThresholdMax>200</param.InlineThresholdMax>
@@ -81,7 +77,6 @@
         <param.EnableVariableSizing />
         <param.DynamicMemoryAllocation />
         <param.DynamicMemoryAllocationThreshold />
-        <param.DynamicMemoryAllocationInterface />
         <param.RowMajor />
         <param.HighlightPotentialRowMajorIssues />
         <param.PreserveArrayDimensions />
@@ -111,9 +106,6 @@
         <param.ConstantFoldingTimeout />
         <param.CompileTimeRecursionLimit />
         <param.EnableRuntimeRecursion />
-        <param.InlineUserFunctions />
-        <param.InlineMWFunctions />
-        <param.InlineMWFunctionsInUserFunctions />
         <param.EchoExpressions />
         <param.InlineThreshold />
         <param.InlineThresholdMax />
@@ -143,7 +135,6 @@
       <param.EnableVariableSizing>true</param.EnableVariableSizing>
       <param.DynamicMemoryAllocation>option.DynamicMemoryAllocation.Enabled</param.DynamicMemoryAllocation>
       <param.DynamicMemoryAllocationThreshold>65536</param.DynamicMemoryAllocationThreshold>
-      <param.DynamicMemoryAllocationInterface>option.DynamicMemoryAllocationInterface.CPP</param.DynamicMemoryAllocationInterface>
       <param.RowMajor>option.RowMajor.ColumnMajor</param.RowMajor>
       <param.HighlightPotentialRowMajorIssues>true</param.HighlightPotentialRowMajorIssues>
       <param.PreserveArrayDimensions>true</param.PreserveArrayDimensions>
@@ -161,7 +152,6 @@
       <param.EnableSignedRightShifts>true</param.EnableSignedRightShifts>
       <param.ParenthesesLevel>option.ParenthesesLevel.Nominal</param.ParenthesesLevel>
       <param.MaxIdLength>128</param.MaxIdLength>
-      <param.HeaderGuardStyle>option.HeaderGuardStyle.UseIncludeGuard</param.HeaderGuardStyle>
       <param.DataTypeReplacement>option.DataTypeReplacement.CBuiltIn</param.DataTypeReplacement>
       <param.EnableCustomReplacementTypes>false</param.EnableCustomReplacementTypes>
       <param.ReplacementTypes.double />
@@ -176,12 +166,6 @@
       <param.ReplacementTypes.int64 />
       <param.ReplacementTypes.char />
       <param.ReplacementTypes.logical />
-      <param.ReplacementTypes.ImportCustomTypes>false</param.ReplacementTypes.ImportCustomTypes>
-      <param.ReplacementTypes.HeaderFiles />
-      <param.CppInterfaceStyle>option.CppInterfaceStyle.Functions</param.CppInterfaceStyle>
-      <param.CppInterfaceClassName />
-      <param.CppPreserveClasses>true</param.CppPreserveClasses>
-      <param.CustomFileNameStr>$N$M</param.CustomFileNameStr>
       <param.CustomSymbolStrGlobalVar>$M$N</param.CustomSymbolStrGlobalVar>
       <param.CustomSymbolStrType>$M$N</param.CustomSymbolStrType>
       <param.CustomSymbolStrField>$M$N</param.CustomSymbolStrField>
@@ -204,7 +188,6 @@
       <param.SILPILCheckConstantInputs>false</param.SILPILCheckConstantInputs>
       <param.SILPILSyncGlobalData>false</param.SILPILSyncGlobalData>
       <param.CodeExecutionProfiling>false</param.CodeExecutionProfiling>
-      <param.CodeProfilingInstrumentation>false</param.CodeProfilingInstrumentation>
       <param.DefaultTestFile />
       <param.MergeInstrumentationResults>false</param.MergeInstrumentationResults>
       <param.RanPilSilVerification>false</param.RanPilSilVerification>
@@ -218,12 +201,12 @@
       <param.CustomSource />
       <param.CustomLibrary />
       <param.PostCodeGenCommand />
-      <param.TargetLangStandard>C++11 (ISO)</param.TargetLangStandard>
+      <param.TargetLangStandard>C++03 (ISO)</param.TargetLangStandard>
       <param.CodeReplacementLibrary>None</param.CodeReplacementLibrary>
       <param.DeprecatedCRLFlag>false</param.DeprecatedCRLFlag>
       <param.SameHardware>true</param.SameHardware>
-      <param.Toolchain>Microsoft Visual C++ 2019 v16.0 | nmake (64-bit Windows)</param.Toolchain>
-      <param.BuildConfiguration>Faster Runs</param.BuildConfiguration>
+      <param.Toolchain>Microsoft Visual C++ 2017 v15.0 | nmake (64-bit Windows)</param.Toolchain>
+      <param.BuildConfiguration>Faster Builds</param.BuildConfiguration>
       <param.CustomToolchainOptions>
         <options>
           <option key="C Compiler" modified="false" value="$(cflags) $(CVARSFLAG) $(CFLAGS_ADDITIONAL) /Od /Oy-" />
@@ -284,7 +267,6 @@
       <param.HardwareAtomicIntegerSize.Target>option.HardwareAtomicIntegerSize.Char</param.HardwareAtomicIntegerSize.Target>
       <param.HardwareAtomicFloatSize.Target>option.HardwareAtomicFloatSize.None</param.HardwareAtomicFloatSize.Target>
       <param.HardwareDivisionRounding.Target>option.HardwareDivisionRounding.Zero</param.HardwareDivisionRounding.Target>
-      <var.SuppressHardwareChange>false</var.SuppressHardwareChange>
       <param.CastingMode>option.CastingMode.Nominal</param.CastingMode>
       <param.IndentStyle>option.IndentStyle.K&amp;R</param.IndentStyle>
       <param.IndentSize>2</param.IndentSize>
@@ -292,16 +274,15 @@
       <param.ConstantFoldingTimeout>40000</param.ConstantFoldingTimeout>
       <param.CompileTimeRecursionLimit>50</param.CompileTimeRecursionLimit>
       <param.EnableRuntimeRecursion>true</param.EnableRuntimeRecursion>
-      <param.RunInitializeFcn>true</param.RunInitializeFcn>
-      <param.IncludeInitializeFcn>true</param.IncludeInitializeFcn>
       <param.IncludeTerminateFcn>true</param.IncludeTerminateFcn>
       <param.GenerateExampleMain>option.GenerateExampleMain.GenerateCodeOnly</param.GenerateExampleMain>
       <param.PreserveVariableNames>option.PreserveVariableNames.None</param.PreserveVariableNames>
-      <param.InlineUserFunctions>option.InlineUserFunctions.Speed</param.InlineUserFunctions>
-      <param.InlineMWFunctions>option.InlineMWFunctions.Speed</param.InlineMWFunctions>
-      <param.InlineMWFunctionsInUserFunctions>option.InlineMWFunctionsInUserFunctions.Speed</param.InlineMWFunctionsInUserFunctions>
+      <param.CCompilerOptimization>option.CCompilerOptimization.Off</param.CCompilerOptimization>
+      <param.CCompilerCustomOptimizations />
       <param.GenerateMakefile>true</param.GenerateMakefile>
       <param.BuildToolEnable>false</param.BuildToolEnable>
+      <param.MakeCommand>make_rtw</param.MakeCommand>
+      <param.TemplateMakefile>default_tmf</param.TemplateMakefile>
       <param.BuildToolConfiguration />
       <param.InlineThreshold>10</param.InlineThreshold>
       <param.InlineThresholdMax>200</param.InlineThresholdMax>
@@ -318,7 +299,7 @@
       <param.CustomBLASCallback />
       <param.GenerateDefaultInSwitch>false</param.GenerateDefaultInSwitch>
       <param.EnableTraceability>true</param.EnableTraceability>
-      <param.UseECoderFeatures>true</param.UseECoderFeatures>
+      <param.UseECoderFeatures>false</param.UseECoderFeatures>
       <param.psCustomPrjState>false</param.psCustomPrjState>
       <param.psCustomProjectFile />
       <param.psCheckConfValue>option.psCheckConfValue.onWarnCheckConfDlg</param.psCheckConfValue>
@@ -339,7 +320,6 @@
         <param.LoopUnrollThreshold />
         <param.EnableVariableSizing />
         <param.DynamicMemoryAllocationThreshold />
-        <param.DynamicMemoryAllocationInterface />
         <param.RowMajor />
         <param.HighlightPotentialRowMajorIssues />
         <param.EliminateSingleDimensions />
@@ -353,7 +333,6 @@
         <param.EnableSignedLeftShifts />
         <param.EnableSignedRightShifts />
         <param.ParenthesesLevel />
-        <param.HeaderGuardStyle />
         <param.DataTypeReplacement />
         <param.EnableCustomReplacementTypes />
         <param.ReplacementTypes.double />
@@ -368,12 +347,6 @@
         <param.ReplacementTypes.int64 />
         <param.ReplacementTypes.char />
         <param.ReplacementTypes.logical />
-        <param.ReplacementTypes.ImportCustomTypes />
-        <param.ReplacementTypes.HeaderFiles />
-        <param.CppInterfaceStyle />
-        <param.CppInterfaceClassName />
-        <param.CppPreserveClasses />
-        <param.CustomFileNameStr />
         <param.CustomSymbolStrGlobalVar />
         <param.CustomSymbolStrType />
         <param.CustomSymbolStrField />
@@ -392,7 +365,6 @@
         <param.ReportInfoVarName />
         <param.SILDebugging />
         <param.CodeExecutionProfiling />
-        <param.CodeProfilingInstrumentation />
         <param.DefaultTestFile />
         <param.MergeInstrumentationResults />
         <param.RanPilSilVerification />
@@ -406,6 +378,7 @@
         <param.CustomSource />
         <param.CustomLibrary />
         <param.PostCodeGenCommand />
+        <param.TargetLangStandard />
         <param.CodeReplacementLibrary />
         <param.DeprecatedCRLFlag />
         <param.SameHardware />
@@ -441,7 +414,6 @@
         <param.HardwareEndianness.Target />
         <param.HardwareAtomicIntegerSize.Target />
         <param.HardwareAtomicFloatSize.Target />
-        <var.SuppressHardwareChange />
         <param.CastingMode />
         <param.IndentStyle />
         <param.IndentSize />
@@ -449,16 +421,15 @@
         <param.ConstantFoldingTimeout />
         <param.CompileTimeRecursionLimit />
         <param.EnableRuntimeRecursion />
-        <param.RunInitializeFcn />
-        <param.IncludeInitializeFcn />
         <param.IncludeTerminateFcn />
         <param.GenerateExampleMain />
         <param.PreserveVariableNames />
-        <param.InlineUserFunctions />
-        <param.InlineMWFunctions />
-        <param.InlineMWFunctionsInUserFunctions />
+        <param.CCompilerOptimization />
+        <param.CCompilerCustomOptimizations />
         <param.GenerateMakefile />
         <param.BuildToolEnable />
+        <param.MakeCommand />
+        <param.TemplateMakefile />
         <param.BuildToolConfiguration />
         <param.InlineThreshold />
         <param.InlineThresholdMax />
@@ -534,9 +505,8 @@
       <param.hdl.ResourceSharing />
       <param.hdl.ConstantMultiplierOptimization />
       <param.hdl.LoopOptimization />
-      <param.hdl.AggressiveDataflowConversion />
       <param.GenerateComments>true</param.GenerateComments>
-      <param.MATLABSourceComments>false</param.MATLABSourceComments>
+      <param.MATLABSourceComments />
       <param.hdl.VHDLFileExt />
       <param.hdl.VerilogFileExt />
       <param.hdl.DateComment />
@@ -706,7 +676,6 @@
         <param.hdl.ResourceSharing />
         <param.hdl.ConstantMultiplierOptimization />
         <param.hdl.LoopOptimization />
-        <param.hdl.AggressiveDataflowConversion />
         <param.GenerateComments />
         <param.MATLABSourceComments />
         <param.hdl.VHDLFileExt />
@@ -837,13 +806,14 @@
     <param.TestSnippets>
       <item>dpcCaller</item>
     </param.TestSnippets>
+    <param.DefaultImportExportVariable>config</param.DefaultImportExportVariable>
     <param.ExternalFcnMajority>column</param.ExternalFcnMajority>
     <param.UseGlobals>option.UseGlobals.No</param.UseGlobals>
     <param.outputfile>${PROJECT_ROOT}\codegen\lib\dpc\dpc.lib</param.outputfile>
     <param.version>R2012a</param.version>
-    <param.HasECoderFeatures>true</param.HasECoderFeatures>
-    <param.HasGpuCoder>true</param.HasGpuCoder>
-    <var.HasNeuralNetworkToolbox>true</var.HasNeuralNetworkToolbox>
+    <param.HasECoderFeatures>false</param.HasECoderFeatures>
+    <param.HasGpuCoder>false</param.HasGpuCoder>
+    <var.HasNeuralNetworkToolbox>false</var.HasNeuralNetworkToolbox>
     <param.mex.mainhtml />
     <param.grt.mainhtml />
     <param.CallGeneratedCodeFromTest>true</param.CallGeneratedCodeFromTest>
@@ -863,39 +833,35 @@
     <param.unifiedParamStorage />
     <var.gc.lastOutputRoot>codegen\lib\dpc</var.gc.lastOutputRoot>
     <var.gc.lastOutputType>C_CODE</var.gc.lastOutputType>
-    <var.gc.preBuildChecksum>2602960928</var.gc.preBuildChecksum>
+    <var.gc.preBuildChecksum>1477846932</var.gc.preBuildChecksum>
     <var.cfi.lastOutputRoot>codegen\mex\dpc</var.cfi.lastOutputRoot>
     <var.cfi.preBuildChecksum>3759174479</var.cfi.preBuildChecksum>
     <var.lastCfiTestSnippet>dpcCaller</var.lastCfiTestSnippet>
     <var.outdatedOnRestore>false</var.outdatedOnRestore>
-    <var.lastUserSourceChecksum>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;checksum&gt;&lt;includedFiles&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\sample\dpcCodeGen\dpc.m&lt;/file&gt;&lt;/includedFiles&gt;&lt;value&gt;2489051958&lt;/value&gt;&lt;/checksum&gt;</var.lastUserSourceChecksum>
-    <var.sourceSetState>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;sourceModel&gt;&lt;primarySourceFiles&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\AllIndex.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\HandleBase.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\IndexBase.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\Matrix3DHandle.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\MatrixHandle.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\MatrixView.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\OperationValue.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\OperationValueForMatrixScalar.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\UnitSpacedIndex.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\Util.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabcoder\ViewBase.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabstub\Stub_fft.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+matlabstub\Stub_Util_throwException.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_Fft_Double.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_SMAdd.m&lt;/file&gt;&lt;file&gt;Y:\ProjsMatlab\MatalbCoder\src\sample\dpcCodeGen\dpc.m&lt;/file&gt;&lt;/primarySourceFiles&gt;&lt;fixedPointSourceFiles/&gt;&lt;fixedPointSourceRegistered&gt;false&lt;/fixedPointSourceRegistered&gt;&lt;fixedPointSourceSelected&gt;false&lt;/fixedPointSourceSelected&gt;&lt;/sourceModel&gt;</var.sourceSetState>
+    <var.lastUserSourceChecksum>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;checksum&gt;&lt;includedFiles&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+matlabcoder\AllIndex.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+matlabcoder\HandleBase.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+matlabcoder\IndexBase.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+matlabcoder\Matrix3DHandle.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+matlabcoder\MatrixHandle.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+matlabcoder\MatrixView.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+matlabcoder\OperationValue.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+matlabcoder\OperationValueForMatrixScalar.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+matlabcoder\Util.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+matlabcoder\VectorView.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+matlabcoder\ViewBase.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+matlabstub\Stub_createVsipMViewContainer.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+matlabstub\Stub_fft.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+matlabstub\Stub_Util_throwException.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_CMConj.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_CMCumsum.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_CMHerm.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_CMMag.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_CMMean.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_MCos.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_MCumsum.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_MExp10.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_MLog10.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_MMean.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_MNeg.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_MNot.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_MOr.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_MSin.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_MSq.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_MSqrtC.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_MSqrtR.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_MSRDiv.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_MSumval.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_MTrans.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_SMAdd.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_SMEq.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_SMGe.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_SMGt.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_SMLe.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_SMLt.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_SMMul_Double.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_SMNe.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_SMRDiv.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_SMSub.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\sample\dpcCodeGen\dpc.m&lt;/file&gt;&lt;/includedFiles&gt;&lt;value&gt;1731817092&lt;/value&gt;&lt;/checksum&gt;</var.lastUserSourceChecksum>
+    <var.sourceSetState>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;sourceModel&gt;&lt;primarySourceFiles&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+matlabcoder\AllIndex.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+matlabcoder\HandleBase.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+matlabcoder\IndexBase.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+matlabcoder\Matrix3DHandle.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+matlabcoder\MatrixHandle.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+matlabcoder\MatrixView.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+matlabcoder\OperationValue.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+matlabcoder\OperationValueForMatrixScalar.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+matlabcoder\Util.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+matlabcoder\VectorView.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+matlabcoder\ViewBase.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+matlabstub\Stub_createVsipMViewContainer.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+matlabstub\Stub_fft.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+matlabstub\Stub_Util_throwException.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_CMConj.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_CMCumsum.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_CMHerm.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_CMMag.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_CMMean.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_MCos.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_MCumsum.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_MExp10.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_MLog10.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_MMean.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_MNeg.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_MNot.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_MOr.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_MSin.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_MSq.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_MSqrtC.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_MSqrtR.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_MSRDiv.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_MSumval.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_MTrans.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_SMAdd.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_SMEq.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_SMGe.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_SMGt.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_SMLe.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_SMLt.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_SMMul_Double.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_SMNe.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_SMRDiv.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\+visplstub\Stub_Vsip_SMSub.m&lt;/file&gt;&lt;file&gt;C:\ProjMatlab\MatalbCoder\src\sample\dpcCodeGen\dpc.m&lt;/file&gt;&lt;/primarySourceFiles&gt;&lt;fixedPointSourceFiles/&gt;&lt;fixedPointSourceRegistered&gt;false&lt;/fixedPointSourceRegistered&gt;&lt;fixedPointSourceSelected&gt;false&lt;/fixedPointSourceSelected&gt;&lt;/sourceModel&gt;</var.sourceSetState>
     <param.forceMexBuild>false</param.forceMexBuild>
     <param.NoDefaultJIT>false</param.NoDefaultJIT>
     <param.configImportActive>false</param.configImportActive>
     <var.isGpuCoder>false</var.isGpuCoder>
     <var.notGpuCoder>true</var.notGpuCoder>
     <var.boundToGui>true</var.boundToGui>
-    <var.isConfigDialog>false</var.isConfigDialog>
-    <var.ecoderEnabled>true</var.ecoderEnabled>
     <param.mex.outputfile>dpc_mex</param.mex.outputfile>
     <param.grt.outputfile>dpc</param.grt.outputfile>
     <param.artifact>option.target.artifact.lib</param.artifact>
     <param.outputfile>${PROJECT_ROOT}\codegen\lib\dpc\dpc.lib</param.outputfile>
-    <param.CppNamespace>dpc</param.CppNamespace>
     <param.gpu.Enabled>false</param.gpu.Enabled>
     <param.gpu.KernelNamePrefix />
     <param.gpu.SelectCudaDevice>-1</param.gpu.SelectCudaDevice>
-    <param.gpu.MaxKernelDepth>0</param.gpu.MaxKernelDepth>
-    <param.gpu.MallocMode>discrete</param.gpu.MallocMode>
+    <param.gpu.MallocMode />
     <param.gpu.MallocThreshold>200</param.gpu.MallocThreshold>
     <param.gpu.StackLimitPerThread>1024</param.gpu.StackLimitPerThread>
-    <param.gpu.EnableCUBLAS>true</param.gpu.EnableCUBLAS>
-    <param.gpu.EnableCUSOLVER>true</param.gpu.EnableCUSOLVER>
-    <param.gpu.EnableCUFFT>true</param.gpu.EnableCUFFT>
+    <param.gpu.EnableCUBLAS>false</param.gpu.EnableCUBLAS>
+    <param.gpu.EnableCUSOLVER>false</param.gpu.EnableCUSOLVER>
+    <param.gpu.EnableCUFFT>false</param.gpu.EnableCUFFT>
     <param.gpu.Benchmarking>false</param.gpu.Benchmarking>
     <param.gpu.SafeBuild>false</param.gpu.SafeBuild>
-    <param.gpu.ComputeCapability>3.5</param.gpu.ComputeCapability>
+    <param.gpu.ComputeCapability />
     <param.gpu.CustomComputeCapability />
     <param.gpu.CompilerFlags />
     <var.checkIssuesGpu>false</var.checkIssuesGpu>
@@ -910,8 +876,7 @@
     <param.tensorrt.NumCalibrationBatches>1</param.tensorrt.NumCalibrationBatches>
     <param.cudnn.AutoTuning>true</param.cudnn.AutoTuning>
     <param.cudnn.DataType>option.cudnn.datatype.fp32</param.cudnn.DataType>
-    <param.cudnn.CalibrationResultFile />
-    <param.arm-compute.ArmComputeVersion>option.arm-compute.version.19_05</param.arm-compute.ArmComputeVersion>
+    <param.arm-compute.ArmComputeVersion>option.arm-compute.version.18_05</param.arm-compute.ArmComputeVersion>
     <param.arm-compute.ArmArchitecture>option.arm-compute.architecture.unspecified</param.arm-compute.ArmArchitecture>
     <param.TargetLang>option.TargetLang.CPP</param.TargetLang>
     <param.EnableAutoExtrinsicCalls>true</param.EnableAutoExtrinsicCalls>
@@ -971,6 +936,7 @@
     <param.FixedPointUseDesignRanges>false</param.FixedPointUseDesignRanges>
     <unset>
       <param.objective />
+      <param.DefaultImportExportVariable />
       <param.ExternalFcnMajority />
       <param.UseGlobals />
       <param.outputfile />
@@ -999,14 +965,11 @@
       <param.configImportActive />
       <var.isGpuCoder />
       <var.notGpuCoder />
-      <var.isConfigDialog />
-      <var.ecoderEnabled />
       <param.mex.outputfile />
       <param.grt.outputfile />
       <param.gpu.Enabled />
       <param.gpu.KernelNamePrefix />
       <param.gpu.SelectCudaDevice />
-      <param.gpu.MaxKernelDepth />
       <param.gpu.MallocMode />
       <param.gpu.MallocThreshold />
       <param.gpu.StackLimitPerThread />
@@ -1030,7 +993,6 @@
       <param.tensorrt.NumCalibrationBatches />
       <param.cudnn.AutoTuning />
       <param.cudnn.DataType />
-      <param.cudnn.CalibrationResultFile />
       <param.arm-compute.ArmComputeVersion />
       <param.arm-compute.ArmArchitecture />
       <param.EnableAutoExtrinsicCalls />
@@ -1118,18 +1080,14 @@
       </file>
     </fileset.inputtypes>
     <build-deliverables>
-      <file location="${PROJECT_ROOT}\codegen\lib\dpc" name="dpc.lib" optional="false">Y:\ProjsMatlab\MatalbCoder\src\sample\dpcCodeGen\codegen\lib\dpc\dpc.lib</file>
+      <file location="${PROJECT_ROOT}\codegen\lib\dpc" name="dpc.lib" optional="false">C:\ProjMatlab\MatalbCoder\src\sample\dpcCodeGen\codegen\lib\dpc\dpc.lib</file>
     </build-deliverables>
     <workflow />
     <matlab>
-      <root>C:\Program Files\MatlabR2020a</root>
+      <root>C:\Program Files\Matlab2019a</root>
       <toolboxes>
         <toolbox name="matlabcoder" />
-        <toolbox name="embeddedcoder" />
-        <toolbox name="gpucoder" />
         <toolbox name="fixedpoint" />
-        <toolbox name="neuralnetwork" />
-        <toolbox name="polyspacebugfinder" />
       </toolboxes>
       <toolbox>
         <matlabcoder>
@@ -1137,29 +1095,9 @@
         </matlabcoder>
       </toolbox>
       <toolbox>
-        <embeddedcoder>
-          <enabled>true</enabled>
-        </embeddedcoder>
-      </toolbox>
-      <toolbox>
-        <gpucoder>
-          <enabled>true</enabled>
-        </gpucoder>
-      </toolbox>
-      <toolbox>
         <fixedpoint>
           <enabled>true</enabled>
         </fixedpoint>
-      </toolbox>
-      <toolbox>
-        <neuralnetwork>
-          <enabled>true</enabled>
-        </neuralnetwork>
-      </toolbox>
-      <toolbox>
-        <polyspacebugfinder>
-          <enabled>true</enabled>
-        </polyspacebugfinder>
       </toolbox>
     </matlab>
     <platform>

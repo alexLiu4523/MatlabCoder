@@ -49,7 +49,7 @@ classdef IndexBase
     
     length(this);
     
-    compose(otherIndex);
+    compose(this, otherIndex);
     
   end
   

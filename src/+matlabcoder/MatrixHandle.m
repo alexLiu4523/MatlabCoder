@@ -12,8 +12,10 @@ classdef MatrixHandle < matlabcoder.HandleBase
     % Note: ismatrix([1 2]) and ismatrix([1; 2]) both return true
 
     function res = subview(this, varargin)
-      % allow 1 or 2 indexes
-      if nargin == 2 || nargin == 3 
+      % allow 0(same as `fullView`), 1 or 2 indexes
+      if nargin == 1
+        res = this.fullView();
+      elseif nargin == 2 || nargin == 3 
         res = matlabcoder.MatrixView(this, varargin{:});
       else
         throw(MException('MatrixHandle:subview:IllegalArgument', 'Unhandled subview index type.'));

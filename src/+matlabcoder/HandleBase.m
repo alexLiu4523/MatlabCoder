@@ -2,7 +2,7 @@ classdef HandleBase < handle
   
   properties
     data
-    vsipBlockContainer = 0
+    vsipBlockContainer
   end
   
   methods
@@ -42,7 +42,7 @@ classdef HandleBase < handle
         end
       end
       
-      this.vsipBlockContainer = 1;
+      this.vsipBlockContainer = matlabstub.Stub_createVsipMViewContainer(this.data);
       
     end
     
@@ -59,20 +59,20 @@ classdef HandleBase < handle
     %       end
     %     end
     
-    % S °™ Indexing structure Indexing structure, passed by MATLAB as the indexing substruct for the indexing expression that caused the call to subsref. This
+    % S ‚Äî Indexing structure Indexing structure, passed by MATLAB as the indexing substruct for the indexing expression that caused the call to subsref. This
     % structure has these fields:
-    %   type ®C Character vector or string scalar containing (), {}, or ., specifying the subscript type.
-    %   subs ®C Cell array, character vector, or string scalar
+    %   type ‚Äì Character vector or string scalar containing (), {}, or ., specifying the subscript type.
+    %   subs ‚Äì Cell array, character vector, or string scalar
     %   containing the actual subscripts.
     % https://www.mathworks.com/help/matlab/ref/substruct.html
     %
-    % Examples: h(2), h(2:2) => s.type = '()', s.subs = 1°¡1 cell  ˝◊È {[2]}, s.subs{1} = 2 h(2:4) => s.type = '()', s.subs = 1°¡1 cell  ˝◊È {1°¡3 double}, s.subs{1} =
-    % [2 3 4] h(2:4, 3:4) => s.type = '()', s.subs = 1°¡2 cell  ˝◊È {1°¡3 double} {1°¡2 double}, s.subs{1} = [2 3 4], s.subs{1} = [3, 4] ? h(1:end, :) => s.type =
-    % '()', s.subs = 1°¡2 cell  ˝◊È {[1]} {':'}
+    % Examples: h(2), h(2:2) => s.type = '()', s.subs = 1√ó1 cell Êï∞ÁªÑ {[2]}, s.subs{1} = 2 h(2:4) => s.type = '()', s.subs = 1√ó1 cell Êï∞ÁªÑ {1√ó3 double}, s.subs{1} =
+    % [2 3 4] h(2:4, 3:4) => s.type = '()', s.subs = 1√ó2 cell Êï∞ÁªÑ {1√ó3 double} {1√ó2 double}, s.subs{1} = [2 3 4], s.subs{1} = [3, 4] ? h(1:end, :) => s.type =
+    % '()', s.subs = 1√ó2 cell Êï∞ÁªÑ {[1]} {':'}
     
-    % A = subsasgn(A,S,B) called by MATLABÅ0Ö3 for the syntax A(i) = B, A{i} = B, or A.i = B when A is an object.
+    % A = subsasgn(A,S,B) called by MATLAB¬Æ for the syntax A(i) = B, A{i} = B, or A.i = B when A is an object.
     % https://www.mathworks.com/help/matlab/ref/subsasgn.html
-    %
+%
     function res = subsasgn(this, s, B)
       if isscalar(s) && isa(s.type, 'char') && strcmp(s.type, '()')
         res = this.subsasgnImplOfIndex(s.subs, B);
